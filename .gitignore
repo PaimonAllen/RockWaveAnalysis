@@ -3,3 +3,5 @@ KNN-shapeClassification/dataset
 KNNJupyter.py
 shapeClassification/SVM/dataset
 shapeClassification/KNN/dataset
+crackClassification/KNN/dataset
+crackClassification/SVM/dataset

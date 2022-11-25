@@ -1,3 +1,3 @@
-print("test")
+import datetime
+print("test", datetime.datetime.now())
 
-a = 1

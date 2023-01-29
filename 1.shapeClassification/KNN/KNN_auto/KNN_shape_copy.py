@@ -1,4 +1,3 @@
-# main KNN function
 # -*- coding: UTF-8 -*-
 import numpy as np
 # import operator
@@ -20,19 +19,26 @@ Modify:
 
 def vector(filename):
     # 创建向量
-    returnVect = np.zeros((1, 8192))
+    returnVect = np.zeros((1, 1024))
     # print(returnVect)
     # 打开文件
     fr = open(filename)
     # 按行读取
-    for i in range(8192):
+    # for i in range(8192):
+    #     # 读一行数据
+    #     lineStr = fr.readline().strip("\n")
+    #     # print(lineStr)
+    #     # 每一行的元素依次添加到returnVect中
+    #     returnVect[0][i] = lineStr
+    # # 返回转换后的向量
+    # # print(returnVect)
+    for i in range(32):
         # 读一行数据
-        lineStr = fr.readline().strip("\n")
-        # print(lineStr)
-        # 每一行的元素依次添加到returnVect中
-        returnVect[0][i] = lineStr
-    # 返回转换后的向量
-    # print(returnVect)
+        lineStr = fr.readline()
+        # 每一行的前32个元素依次添加到returnVect中
+        for j in range(32):
+            returnVect[0, 32*i+j] = int(lineStr[j])
+        # 返回转换后的1x1024向量
     return returnVect
 
 
@@ -57,36 +63,36 @@ testRes = []
 def KNNclassify():
     # 测试集的Labels
     Labels = []
-    # 返回training目录下的文件名
-    trainingFileList = listdir('dataset/train/')
+    # 返回trainingDigits目录下的文件名
+    trainingFileList = listdir('../dataset/train2/')
     # print(trainingFileList)
     # 返回文件夹下文件的个数
     m = len(trainingFileList)
     print(m)
     # 初始化训练的Mat矩阵,测试集
-    trainingMat = np.zeros((m, 8192))
+    trainingMat = np.zeros((m, 1024))
     # 从文件名中解析出训练集的类别
     for i in range(m):
         # 获得文件的名字
         fileNameStr = trainingFileList[i]
         # 获得分类的数字
-        classNumber = int(fileNameStr.split('-')[1])
+        classNumber = int(fileNameStr.split('_')[0])
         # 将获得的类别添加到Labels中
         Labels.append(classNumber)
         # 加入train矩阵
-        trainSet.append([fileNameStr.split('-')[0], fileNameStr.split('-')[1]])
+        trainSet.append([fileNameStr.split('_')[1], fileNameStr.split('_')[0]])
         # 将每一个文件的数据存储到trainingMat矩阵中
         trainingMat[i, :] = vector(
-            'dataset/train/%s' % (fileNameStr))
+            '../dataset/train2/%s' % (fileNameStr))
         # print(i)
     # print(trainingMat.shape)
     # print(trainSet)
     # 构建kNN分类器
-    neigh = kNN(n_neighbors=1, algorithm='auto')
+    neigh = kNN(n_neighbors=3, algorithm='auto')
     # 拟合模型, trainingMat为训练矩阵,Labels为对应的标签
     neigh.fit(trainingMat, Labels)
     # 返回testDigits目录下的文件列表
-    testFileList = listdir('dataset/test/')
+    testFileList = listdir('../dataset/test2/')
     # 错误检测计数
     errorCount = 0.0
     # 测试数据的数量
@@ -97,11 +103,11 @@ def KNNclassify():
         # 获得文件的名字
         fileNameStr = testFileList[i]
         # 获得分类的数字
-        classNumber = int(fileNameStr.split('-')[1])
+        classNumber = int(fileNameStr.split('_')[0])
         # print(classNumber)
         # 获得测试集的1x1024向量,用于训练
         vectorUnderTest = vector(
-            'dataset/train/%s' % (fileNameStr))
+            '../dataset/test2/%s' % (fileNameStr))
         # 获得预测结果
         # classifierResult = classify0(vectorUnderTest, trainingMat, hwLabels,
         # 3)
@@ -110,10 +116,10 @@ def KNNclassify():
         if classifierResult == 1:
             res = 'square'
             # 加入结果矩阵
-            testSet.append([fileNameStr.split('-')[0], '1'])
+            testSet.append([fileNameStr.split('_')[0], '1'])
         if classifierResult == 2:
             res = 'circle'
-            testSet.append([fileNameStr.split('-')[0], '2'])
+            testSet.append([fileNameStr.split('_')[0], '2'])
         if classNumber == 1:
             rockclass = 'square'
         if classNumber == 2:

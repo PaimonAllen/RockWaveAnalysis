@@ -1,3 +1,4 @@
+# main KNN function
 # -*- coding: UTF-8 -*-
 import numpy as np
 # import operator
@@ -57,7 +58,7 @@ def KNNclassify():
     # 测试集的Labels
     Labels = []
     # 返回trainingDigits目录下的文件名
-    trainingFileList = listdir('../dataset/train4/')
+    trainingFileList = listdir('../dataset/train1/')
     # print(trainingFileList)
     # 返回文件夹下文件的个数
     m = len(trainingFileList)
@@ -76,16 +77,16 @@ def KNNclassify():
         trainSet.append([fileNameStr.split('-')[0], fileNameStr.split('-')[1]])
         # 将每一个文件的数据存储到trainingMat矩阵中
         trainingMat[i, :] = vector(
-            '../dataset/train4/%s' % (fileNameStr))
+            '../dataset/train1/%s' % (fileNameStr))
         # print(i)
     # print(trainingMat.shape)
     # print(trainSet)
     # 构建kNN分类器
-    neigh = kNN(n_neighbors=5, algorithm='auto')
+    neigh = kNN(n_neighbors=1, algorithm='auto')
     # 拟合模型, trainingMat为训练矩阵,Labels为对应的标签
     neigh.fit(trainingMat, Labels)
     # 返回testDigits目录下的文件列表
-    testFileList = listdir('../dataset/test4/')
+    testFileList = listdir('../dataset/test1/')
     # 错误检测计数
     errorCount = 0.0
     # 测试数据的数量
@@ -100,19 +101,20 @@ def KNNclassify():
         # print(classNumber)
         # 获得测试集的1x1024向量,用于训练
         vectorUnderTest = vector(
-            '../dataset/test4/%s' % (fileNameStr))
+            '../dataset/test1/%s' % (fileNameStr))
         # 获得预测结果
-        # classifierResult = classify0(vectorUnderTest, trainingMat, hwLabels,
+        # classifierResult = classify0(vectorUnderTest, trainingMat, hwLabels, 
         # 3)
         classifierResult = neigh.predict(vectorUnderTest)
         print(classifierResult)
         if classifierResult == 1:
             res = 'square'
             # 加入结果矩阵
-            testSet.append([fileNameStr.split('-')[0], '1'])
+            # testSet.append([fileNameStr.split('-')[0], '1'])
         if classifierResult == 2:
             res = 'circle'
-            testSet.append([fileNameStr.split('-')[0], '2'])
+            # 加入结果矩阵
+            # testSet.append([fileNameStr.split('-')[0], '2'])
         if classNumber == 1:
             rockclass = 'square'
         if classNumber == 2:
@@ -121,7 +123,7 @@ def KNNclassify():
         if (classifierResult != classNumber):
             errorCount += 1.0
         print("目前错误个数：", errorCount)
-        print("process:{:.2f}%".format((i/mTest)*100))
+        print("process:{}%".format((i/mTest)*100))
     print("总共错了%d个数据\n错误率为%f%%，正确率为%f%%" %
           (errorCount, errorCount/mTest * 100, (1 - errorCount/mTest) * 100))
 

@@ -2,19 +2,7 @@
 import numpy as np
 # import operator
 from os import listdir
-from sklearn.neighbors import KNeighborsClassifier as kNN
-
-"""
-函数说明:向量转化。
-
-Parameters:
-    filename - 文件名
-Returns:
-    returnVect - 返回的二进制图像的向量
-
-Modify:
-    ---
-"""
+from sklearn.svm import SVC
 
 
 def vector(filename):
@@ -28,40 +16,27 @@ def vector(filename):
         # 读一行数据
         lineStr = fr.readline().strip("\n")
         # print(lineStr)
-        # 每一行的元素依次添加到returnVect中
+        # 每一行的前32个元素依次添加到returnVect中
         returnVect[0][i] = lineStr
     # 返回转换后的向量
     # print(returnVect)
     return returnVect
 
 
-"""
-函数说明:分类测试
-
-Parameters:
-    无
-Returns:
-    无
-
-Modify:
-    ---
-"""
-# train序列集合
-trainSet = []
-# test序列集合
-testSet = []
-testRes = []
-
-
-def KNNclassify():
+def SignalClassTest():
+    """
+    分类
+    Parameters:
+            无
+    Returns:
+            无
+    """
     # 测试集的Labels
     Labels = []
     # 返回trainingDigits目录下的文件名
-    trainingFileList = listdir('../dataset/train4/')
-    # print(trainingFileList)
+    trainingFileList = listdir('../../KNN/dataset/train4/')
     # 返回文件夹下文件的个数
     m = len(trainingFileList)
-    print(m)
     # 初始化训练的Mat矩阵,测试集
     trainingMat = np.zeros((m, 8192))
     # 从文件名中解析出训练集的类别
@@ -70,22 +45,15 @@ def KNNclassify():
         fileNameStr = trainingFileList[i]
         # 获得分类的数字
         classNumber = int(fileNameStr.split('-')[1])
-        # 将获得的类别添加到Labels中
+        # 将获得的类别添加到hwLabels中
         Labels.append(classNumber)
-        # 加入train矩阵
-        trainSet.append([fileNameStr.split('-')[0], fileNameStr.split('-')[1]])
         # 将每一个文件的数据存储到trainingMat矩阵中
         trainingMat[i, :] = vector(
-            '../dataset/train4/%s' % (fileNameStr))
-        # print(i)
-    # print(trainingMat.shape)
-    # print(trainSet)
-    # 构建kNN分类器
-    neigh = kNN(n_neighbors=5, algorithm='auto')
-    # 拟合模型, trainingMat为训练矩阵,Labels为对应的标签
-    neigh.fit(trainingMat, Labels)
+            '../../KNN/dataset/train4/%s' % (fileNameStr))
+    clf = SVC(C=200, kernel='rbf')
+    clf.fit(trainingMat, Labels)
     # 返回testDigits目录下的文件列表
-    testFileList = listdir('../dataset/test4/')
+    testFileList = listdir('../../KNN/dataset/test4/')
     # 错误检测计数
     errorCount = 0.0
     # 测试数据的数量
@@ -97,22 +65,26 @@ def KNNclassify():
         fileNameStr = testFileList[i]
         # 获得分类的数字
         classNumber = int(fileNameStr.split('-')[1])
-        # print(classNumber)
         # 获得测试集的1x1024向量,用于训练
-        vectorUnderTest = vector(
-            '../dataset/test4/%s' % (fileNameStr))
+        vectorUnderTest = vector('../../KNN/dataset/test4/%s' % (fileNameStr))
         # 获得预测结果
-        # classifierResult = classify0(vectorUnderTest, trainingMat, hwLabels,
-        # 3)
-        classifierResult = neigh.predict(vectorUnderTest)
+        # classifierResult = classify0(vectorUnderTest, 
+        # trainingMat, hwLabels, 3)
+        classifierResult = clf.predict(vectorUnderTest)
+
+        # print("分类返回结果为%d\t真实结果为%d" % (classifierResult, classNumber))
+        # if(classifierResult != classNumber):
+        #     errorCount += 1.0
+
+        # print res
         print(classifierResult)
         if classifierResult == 1:
             res = 'square'
             # 加入结果矩阵
-            testSet.append([fileNameStr.split('-')[0], '1'])
+            # testSet.append([fileNameStr.split('-')[0], '1'])
         if classifierResult == 2:
             res = 'circle'
-            testSet.append([fileNameStr.split('-')[0], '2'])
+            # testSet.append([fileNameStr.split('-')[0], '2'])
         if classNumber == 1:
             rockclass = 'square'
         if classNumber == 2:
@@ -122,20 +94,10 @@ def KNNclassify():
             errorCount += 1.0
         print("目前错误个数：", errorCount)
         print("process:{:.2f}%".format((i/mTest)*100))
+
     print("总共错了%d个数据\n错误率为%f%%，正确率为%f%%" %
           (errorCount, errorCount/mTest * 100, (1 - errorCount/mTest) * 100))
 
 
-"""
-函数说明:main函数
-
-Parameters:
-    无
-Returns:
-    无
-
-Modify:
-    ---
-"""
 if __name__ == '__main__':
-    KNNclassify()
+    SignalClassTest()

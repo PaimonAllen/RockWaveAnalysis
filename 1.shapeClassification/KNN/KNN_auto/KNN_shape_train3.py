@@ -121,7 +121,7 @@ def KNNclassify():
         if (classifierResult != classNumber):
             errorCount += 1.0
         print("目前错误个数：", errorCount)
-        print("process:{}%".format((i/mTest)*100))
+        print("process:{:.2f}%".format((i/mTest)*100))
     print("总共错了%d个数据\n错误率为%f%%，正确率为%f%%" %
           (errorCount, errorCount/mTest * 100, (1 - errorCount/mTest) * 100))
 

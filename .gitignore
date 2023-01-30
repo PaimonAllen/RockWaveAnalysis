@@ -8,4 +8,7 @@ crackClassification/SVM/dataset
 1.shapeClassification/KNN/dataset
 1.shapeClassification/SVM/dataset
 1.shapeClassification/KNN/log
+2.isCrackClassification/KNN/dataset
 2.isCrackClassification/SVM/dataset
+3.crackLengthClassification/KNN/dataset
+3.crackLengthClassification/SVM/dataset

@@ -12,3 +12,6 @@ crackClassification/SVM/dataset
 2.isCrackClassification/SVM/dataset
 3.crackLengthClassification/KNN/dataset
 3.crackLengthClassification/SVM/dataset
+1.shapeClassification/SVM/SVM_SVC/log
+3.crackLengthClassification/KNN/KNN_auto/log
+4.crackShapeClassification/KNN/dataset

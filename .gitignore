@@ -27,3 +27,4 @@ crackClassification/SVM/dataset
 2.isCrackClassification/SVM/SVM_SVC/log
 7.onlyShapeClassification/KNN/KNN_auto/log
 7.onlyShapeClassification/SVM/SVM_SVC/log
+featureExtract/data

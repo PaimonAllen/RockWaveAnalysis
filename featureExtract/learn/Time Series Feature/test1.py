@@ -7,7 +7,8 @@ df = pd.read_csv(
     '/home/tzr/DataLinux/Documents/GitHubSYNC/RockWaveAnalysis\
 /1.shapeClassification/KNN/dataset/processAndTemp/1.shapeTotal/1-1')
 
-# Retrieves a pre-defined feature configuration file to extract all available features
+# Retrieves a pre-defined feature configuration file to \
+# extract all available features
 cfg = tsfel.get_features_by_domain()
 
 # Extract features

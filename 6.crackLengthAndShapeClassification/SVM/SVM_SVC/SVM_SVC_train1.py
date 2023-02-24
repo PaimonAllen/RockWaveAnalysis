@@ -79,16 +79,77 @@ def SignalClassTest():
         # print res
         print(classifierResult)
         if classifierResult == 1:
-            res = 'square'
+            res = '1.1*5mm'
             # 加入结果矩阵
             # testSet.append([fileNameStr.split('-')[0], '1'])
         if classifierResult == 2:
-            res = 'circle'
+            res = '2.1*10mm'
+            # 加入结果矩阵
+            # testSet.append([fileNameStr.split('-')[0], '2'])
+        if classifierResult == 3:
+            res = '3.1*15mm'
+            # 加入结果矩阵
+            # testSet.append([fileNameStr.split('-')[0], '2'])
+        if classifierResult == 4:
+            res = '4.1*20mm'
+            # 加入结果矩阵
+            # testSet.append([fileNameStr.split('-')[0], '2'])
+        if classifierResult == 5:
+            res = '5.2*5mm'
+            # 加入结果矩阵
+            # testSet.append([fileNameStr.split('-')[0], '2'])
+        if classifierResult == 6:
+            res = '6.2*10mm'
+            # 加入结果矩阵
+            # testSet.append([fileNameStr.split('-')[0], '2'])
+        if classifierResult == 7:
+            res = '7.4*5mm'
+            # 加入结果矩阵
+            # testSet.append([fileNameStr.split('-')[0], '1'])
+        if classifierResult == 8:
+            res = '8.2*5mm'
+            # 加入结果矩阵
+            # testSet.append([fileNameStr.split('-')[0], '2'])
+        if classifierResult == 9:
+            res = '9.3*5mm'
+            # 加入结果矩阵
+            # testSet.append([fileNameStr.split('-')[0], '2'])
+        if classifierResult == 10:
+            res = '10.4*5mm'
+            # 加入结果矩阵
+            # testSet.append([fileNameStr.split('-')[0], '2'])
+        if classifierResult == 11:
+            res = '11.5*5mm'
+            # 加入结果矩阵
+            # testSet.append([fileNameStr.split('-')[0], '2'])
+        if classifierResult == 12:
+            res = '12.noCrack'
+            # 加入结果矩阵
             # testSet.append([fileNameStr.split('-')[0], '2'])
         if classNumber == 1:
-            rockclass = 'square'
+            rockclass = '1.1*5mm'
         if classNumber == 2:
-            rockclass = 'circle'
+            rockclass = '2.1*10mm'
+        if classNumber == 3:
+            rockclass = '3.1*15mm'
+        if classNumber == 4:
+            rockclass = '4.1*20mm'
+        if classNumber == 5:
+            rockclass = '5.2*5mm'
+        if classNumber == 6:
+            rockclass = '6.2*10mm'
+        if classNumber == 7:
+            rockclass = '7.4*5mm'
+        if classNumber == 8:
+            rockclass = '8.2*5mm'
+        if classNumber == 9:
+            rockclass = '9.3*5mm'
+        if classNumber == 10:
+            rockclass = '10.4*5mm'
+        if classNumber == 11:
+            rockclass = '11.5*5mm'
+        if classNumber == 12:
+            rockclass = '12.noCrack'
         print("分类返回结果为%s\t真实结果为%s" % (res, rockclass))
         if (classifierResult != classNumber):
             errorCount += 1.0

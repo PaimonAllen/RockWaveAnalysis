@@ -58,7 +58,7 @@ def KNNclassify():
     # 测试集的Labels
     Labels = []
     # 返回trainingDigits目录下的文件名
-    trainingFileList = listdir('../dataset/train1/')
+    trainingFileList = listdir('/home/tzr/DataLinux-SSD/Dataset/6.crackLengthAndShapeClassification/KNN/dataset/train1/')
     # print(trainingFileList)
     # 返回文件夹下文件的个数
     m = len(trainingFileList)
@@ -77,7 +77,7 @@ def KNNclassify():
         trainSet.append([fileNameStr.split('-')[0], fileNameStr.split('-')[1]])
         # 将每一个文件的数据存储到trainingMat矩阵中
         trainingMat[i, :] = vector(
-            '../dataset/train1/%s' % (fileNameStr))
+            '/home/tzr/DataLinux-SSD/Dataset/6.crackLengthAndShapeClassification/KNN/dataset/train1/%s' % (fileNameStr))
         # print(i)
     # print(trainingMat.shape)
     # print(trainSet)
@@ -86,7 +86,7 @@ def KNNclassify():
     # 拟合模型, trainingMat为训练矩阵,Labels为对应的标签
     neigh.fit(trainingMat, Labels)
     # 返回testDigits目录下的文件列表
-    testFileList = listdir('../dataset/test1/')
+    testFileList = listdir('/home/tzr/DataLinux-SSD/Dataset/6.crackLengthAndShapeClassification/KNN/dataset/test1/')
     # 错误检测计数
     errorCount = 0.0
     # 测试数据的数量
@@ -101,7 +101,7 @@ def KNNclassify():
         # print(classNumber)
         # 获得测试集的1x1024向量,用于训练
         vectorUnderTest = vector(
-            '../dataset/test1/%s' % (fileNameStr))
+            '/home/tzr/DataLinux-SSD/Dataset/6.crackLengthAndShapeClassification/KNN/dataset/test1/%s' % (fileNameStr))
         # 获得预测结果
         # classifierResult = classify0(vectorUnderTest, trainingMat, hwLabels, 
         # 3)

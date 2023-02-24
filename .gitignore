@@ -28,3 +28,17 @@ crackClassification/SVM/dataset
 7.onlyShapeClassification/KNN/KNN_auto/log
 7.onlyShapeClassification/SVM/SVM_SVC/log
 featureExtract/data
+featureExtract/learn/pyAudioAnalysis/pyAudioAnalysis-master.zip
+learn/Pytorch-heart/dataset
+learn/Pytorch-signal/dataset
+7.onlyShapeClassification/CNN/dataset
+1.shapeClassification/KNN/KNN_auto/log
+1.shapeClassification/SVM/SVM_SVC/log
+2.isCrackClassification/KNN/KNN_auto/log
+2.isCrackClassification/SVM/SVM_SVC/log
+3.crackLengthClassification/KNN/KNN_auto/log
+6.crackLengthAndShapeClassification/KNN/KNN_auto/log
+6.crackLengthAndShapeClassification/SVM/SVM_SVC/log
+7.onlyShapeClassification/LTSM/dataset
+learn
+SUM

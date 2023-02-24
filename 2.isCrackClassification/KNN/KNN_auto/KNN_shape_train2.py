@@ -50,12 +50,15 @@ Modify:
 trainSet = []
 # test序列集合
 testSet = []
-testRes = []
+# 结果序列集合
+resSet = []
 
 
 def KNNclassify():
     # 测试集的Labels
     Labels = []
+    # 错误的数据集
+    errList = []
     # 返回trainingDigits目录下的文件名
     trainingFileList = listdir('../dataset/train2/')
     # print(trainingFileList)
@@ -108,22 +111,31 @@ def KNNclassify():
         print(classifierResult)
         if classifierResult == 1:
             res = 'square'
+            # 加入测试矩阵
+            testSet.append(classNumber)
             # 加入结果矩阵
-            testSet.append([fileNameStr.split('-')[0], '1'])
+            resSet.append(int(classifierResult))
         if classifierResult == 2:
             res = 'circle'
-            testSet.append([fileNameStr.split('-')[0], '2'])
+            # 加入测试矩阵
+            testSet.append(classNumber)
+            # 加入结果矩阵
+            resSet.append(int(classifierResult))
         if classNumber == 1:
             rockclass = 'square'
         if classNumber == 2:
             rockclass = 'circle'
-        print("分类返回结果为%s\t真实结果为%s" % (res, rockclass))
+        # print("分类返回结果为%s\t真实结果为%s" % (res, rockclass))
         if (classifierResult != classNumber):
             errorCount += 1.0
-        print("目前错误个数：", errorCount)
+            errList.append([i, res, rockclass])
+        # print("目前错误个数：", errorCount)
         print("process:{:.2f}%".format((i/mTest)*100))
     print("总共错了%d个数据\n错误率为%f%%，正确率为%f%%" %
           (errorCount, errorCount/mTest * 100, (1 - errorCount/mTest) * 100))
+    print(errList)
+    np.savetxt("./log/testSet.txt", testSet)
+    np.savetxt("./log/resSet.txt", resSet)
 
 
 """

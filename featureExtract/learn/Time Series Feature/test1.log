@@ -1,789 +1,0 @@
-*** Feature extraction started ***
-Progress: |--------------------------------------------------| 2% CompleteProgress: |█-------------------------------------------------| 3% CompleteProgress: |██------------------------------------------------| 5% CompleteProgress: |███-----------------------------------------------| 7% CompleteProgress: |████----------------------------------------------| 8% CompleteProgress: |█████---------------------------------------------| 10% CompleteProgress: |█████---------------------------------------------| 12% CompleteProgress: |██████--------------------------------------------| 13% CompleteProgress: |███████-------------------------------------------| 15% CompleteProgress: |████████------------------------------------------| 17% CompleteProgress: |█████████-----------------------------------------| 18% CompleteProgress: |██████████----------------------------------------| 20% CompleteProgress: |██████████----------------------------------------| 22% CompleteProgress: |███████████---------------------------------------| 23% CompleteProgress: |████████████--------------------------------------| 25% CompleteProgress: |█████████████-------------------------------------| 27% CompleteProgress: |██████████████------------------------------------| 28% CompleteProgress: |███████████████-----------------------------------| 30% CompleteProgress: |███████████████-----------------------------------| 32% CompleteProgress: |████████████████----------------------------------| 33% CompleteProgress: |█████████████████---------------------------------| 35% CompleteProgress: |██████████████████--------------------------------| 37% CompleteProgress: |███████████████████-------------------------------| 38% CompleteProgress: |████████████████████------------------------------| 40% CompleteProgress: |████████████████████------------------------------| 42% CompleteProgress: |█████████████████████-----------------------------| 43% CompleteProgress: |██████████████████████----------------------------| 45% CompleteProgress: |███████████████████████---------------------------| 47% CompleteProgress: |████████████████████████--------------------------| 48% CompleteProgress: |█████████████████████████-------------------------| 50% CompleteProgress: |█████████████████████████-------------------------| 52% CompleteProgress: |██████████████████████████------------------------| 53% CompleteProgress: |███████████████████████████-----------------------| 55% CompleteProgress: |████████████████████████████----------------------| 57% CompleteProgress: |█████████████████████████████---------------------| 58% CompleteProgress: |██████████████████████████████--------------------| 60% CompleteProgress: |██████████████████████████████--------------------| 62% CompleteProgress: |███████████████████████████████-------------------| 63% CompleteProgress: |████████████████████████████████------------------| 65% CompleteProgress: |█████████████████████████████████-----------------| 67% CompleteProgress: |██████████████████████████████████----------------| 68% CompleteProgress: |███████████████████████████████████---------------| 70% CompleteProgress: |███████████████████████████████████---------------| 72% CompleteProgress: |████████████████████████████████████--------------| 73% CompleteProgress: |█████████████████████████████████████-------------| 75% CompleteProgress: |██████████████████████████████████████------------| 77% CompleteProgress: |███████████████████████████████████████-----------| 78% CompleteProgress: |████████████████████████████████████████----------| 80% CompleteProgress: |████████████████████████████████████████----------| 82% CompleteProgress: |█████████████████████████████████████████---------| 83% CompleteProgress: |██████████████████████████████████████████--------| 85% CompleteProgress: |███████████████████████████████████████████-------| 87% CompleteProgress: |████████████████████████████████████████████------| 88% CompleteProgress: |█████████████████████████████████████████████-----| 90% CompleteProgress: |█████████████████████████████████████████████-----| 92% CompleteProgress: |██████████████████████████████████████████████----| 93% CompleteProgress: |███████████████████████████████████████████████---| 95% CompleteProgress: |████████████████████████████████████████████████--| 97% CompleteProgress: |█████████████████████████████████████████████████-| 98% CompleteProgress: |██████████████████████████████████████████████████| 100% Complete
-
-*** Feature extraction finished ***
-   0_Absolute energy  ...  0_Zero crossing rate
-0          90.933764  ...                1535.0
-
-[1 rows x 390 columns]
-0    90.933764
-Name: 0_Absolute energy, dtype: float64
-0    0.015933
-Name: 0_Area under the curve, dtype: float64
-0    90.933764
-Name: 0_Autocorrelation, dtype: float64
-0    0.034817
-Name: 0_Centroid, dtype: float64
-0    1638.0
-Name: 0_ECDF Percentile Count_0, dtype: float64
-0    6552.0
-Name: 0_ECDF Percentile Count_1, dtype: float64
-0   -0.006089
-Name: 0_ECDF Percentile_0, dtype: float64
-0    0.006089
-Name: 0_ECDF Percentile_1, dtype: float64
-0    0.000122
-Name: 0_ECDF_0, dtype: float64
-0    0.000244
-Name: 0_ECDF_1, dtype: float64
-0    0.000366
-Name: 0_ECDF_2, dtype: float64
-0    0.000488
-Name: 0_ECDF_3, dtype: float64
-0    0.00061
-Name: 0_ECDF_4, dtype: float64
-0    0.000733
-Name: 0_ECDF_5, dtype: float64
-0    0.000855
-Name: 0_ECDF_6, dtype: float64
-0    0.000977
-Name: 0_ECDF_7, dtype: float64
-0    0.001099
-Name: 0_ECDF_8, dtype: float64
-0    0.001221
-Name: 0_ECDF_9, dtype: float64
-0    0.367077
-Name: 0_Entropy, dtype: float64
-0    2.544639e-07
-Name: 0_FFT mean coefficient_0, dtype: float64
-0    8.766866e-09
-Name: 0_FFT mean coefficient_1, dtype: float64
-0    0.000072
-Name: 0_FFT mean coefficient_10, dtype: float64
-0    4.367866e-10
-Name: 0_FFT mean coefficient_100, dtype: float64
-0    3.110102e-10
-Name: 0_FFT mean coefficient_101, dtype: float64
-0    3.775388e-10
-Name: 0_FFT mean coefficient_102, dtype: float64
-0    3.900724e-10
-Name: 0_FFT mean coefficient_103, dtype: float64
-0    2.635843e-10
-Name: 0_FFT mean coefficient_104, dtype: float64
-0    3.440834e-10
-Name: 0_FFT mean coefficient_105, dtype: float64
-0    1.231067e-10
-Name: 0_FFT mean coefficient_106, dtype: float64
-0    1.729211e-10
-Name: 0_FFT mean coefficient_107, dtype: float64
-0    1.472676e-10
-Name: 0_FFT mean coefficient_108, dtype: float64
-0    2.620653e-10
-Name: 0_FFT mean coefficient_109, dtype: float64
-0    0.000067
-Name: 0_FFT mean coefficient_11, dtype: float64
-0    1.299952e-10
-Name: 0_FFT mean coefficient_110, dtype: float64
-0    1.730964e-10
-Name: 0_FFT mean coefficient_111, dtype: float64
-0    2.187065e-10
-Name: 0_FFT mean coefficient_112, dtype: float64
-0    1.654705e-10
-Name: 0_FFT mean coefficient_113, dtype: float64
-0    1.304379e-10
-Name: 0_FFT mean coefficient_114, dtype: float64
-0    8.638877e-11
-Name: 0_FFT mean coefficient_115, dtype: float64
-0    1.475141e-10
-Name: 0_FFT mean coefficient_116, dtype: float64
-0    1.044636e-10
-Name: 0_FFT mean coefficient_117, dtype: float64
-0    1.528602e-10
-Name: 0_FFT mean coefficient_118, dtype: float64
-0    1.030031e-10
-Name: 0_FFT mean coefficient_119, dtype: float64
-0    0.000014
-Name: 0_FFT mean coefficient_12, dtype: float64
-0    1.110964e-10
-Name: 0_FFT mean coefficient_120, dtype: float64
-0    7.613271e-11
-Name: 0_FFT mean coefficient_121, dtype: float64
-0    1.833652e-10
-Name: 0_FFT mean coefficient_122, dtype: float64
-0    1.192282e-10
-Name: 0_FFT mean coefficient_123, dtype: float64
-0    7.634953e-11
-Name: 0_FFT mean coefficient_124, dtype: float64
-0    8.853982e-11
-Name: 0_FFT mean coefficient_125, dtype: float64
-0    1.173200e-10
-Name: 0_FFT mean coefficient_126, dtype: float64
-0    1.360633e-10
-Name: 0_FFT mean coefficient_127, dtype: float64
-0    1.267219e-10
-Name: 0_FFT mean coefficient_128, dtype: float64
-0    1.198274e-10
-Name: 0_FFT mean coefficient_129, dtype: float64
-0    0.000007
-Name: 0_FFT mean coefficient_13, dtype: float64
-0    8.020007e-11
-Name: 0_FFT mean coefficient_130, dtype: float64
-0    9.049869e-11
-Name: 0_FFT mean coefficient_131, dtype: float64
-0    9.735722e-11
-Name: 0_FFT mean coefficient_132, dtype: float64
-0    9.072458e-11
-Name: 0_FFT mean coefficient_133, dtype: float64
-0    1.484803e-10
-Name: 0_FFT mean coefficient_134, dtype: float64
-0    5.876018e-11
-Name: 0_FFT mean coefficient_135, dtype: float64
-0    8.344741e-11
-Name: 0_FFT mean coefficient_136, dtype: float64
-0    7.149803e-11
-Name: 0_FFT mean coefficient_137, dtype: float64
-0    6.918423e-11
-Name: 0_FFT mean coefficient_138, dtype: float64
-0    1.099877e-10
-Name: 0_FFT mean coefficient_139, dtype: float64
-0    0.000006
-Name: 0_FFT mean coefficient_14, dtype: float64
-0    9.936180e-11
-Name: 0_FFT mean coefficient_140, dtype: float64
-0    6.340905e-11
-Name: 0_FFT mean coefficient_141, dtype: float64
-0    7.124843e-11
-Name: 0_FFT mean coefficient_142, dtype: float64
-0    8.170695e-11
-Name: 0_FFT mean coefficient_143, dtype: float64
-0    6.115629e-11
-Name: 0_FFT mean coefficient_144, dtype: float64
-0    8.788465e-11
-Name: 0_FFT mean coefficient_145, dtype: float64
-0    8.935240e-11
-Name: 0_FFT mean coefficient_146, dtype: float64
-0    7.446527e-11
-Name: 0_FFT mean coefficient_147, dtype: float64
-0    4.880135e-11
-Name: 0_FFT mean coefficient_148, dtype: float64
-0    1.114073e-10
-Name: 0_FFT mean coefficient_149, dtype: float64
-0    0.000025
-Name: 0_FFT mean coefficient_15, dtype: float64
-0    1.155293e-10
-Name: 0_FFT mean coefficient_150, dtype: float64
-0    1.541392e-10
-Name: 0_FFT mean coefficient_151, dtype: float64
-0    9.260105e-11
-Name: 0_FFT mean coefficient_152, dtype: float64
-0    8.293630e-11
-Name: 0_FFT mean coefficient_153, dtype: float64
-0    6.201120e-11
-Name: 0_FFT mean coefficient_154, dtype: float64
-0    6.254197e-11
-Name: 0_FFT mean coefficient_155, dtype: float64
-0    8.984968e-11
-Name: 0_FFT mean coefficient_156, dtype: float64
-0    8.079848e-11
-Name: 0_FFT mean coefficient_157, dtype: float64
-0    1.084667e-10
-Name: 0_FFT mean coefficient_158, dtype: float64
-0    9.545155e-11
-Name: 0_FFT mean coefficient_159, dtype: float64
-0    0.00002
-Name: 0_FFT mean coefficient_16, dtype: float64
-0    7.551895e-11
-Name: 0_FFT mean coefficient_160, dtype: float64
-0    6.927886e-11
-Name: 0_FFT mean coefficient_161, dtype: float64
-0    7.805141e-11
-Name: 0_FFT mean coefficient_162, dtype: float64
-0    5.682483e-11
-Name: 0_FFT mean coefficient_163, dtype: float64
-0    8.343146e-11
-Name: 0_FFT mean coefficient_164, dtype: float64
-0    8.315869e-11
-Name: 0_FFT mean coefficient_165, dtype: float64
-0    7.481529e-11
-Name: 0_FFT mean coefficient_166, dtype: float64
-0    9.941006e-11
-Name: 0_FFT mean coefficient_167, dtype: float64
-0    7.113764e-11
-Name: 0_FFT mean coefficient_168, dtype: float64
-0    6.979630e-11
-Name: 0_FFT mean coefficient_169, dtype: float64
-0    0.000004
-Name: 0_FFT mean coefficient_17, dtype: float64
-0    6.176203e-11
-Name: 0_FFT mean coefficient_170, dtype: float64
-0    1.366650e-10
-Name: 0_FFT mean coefficient_171, dtype: float64
-0    6.791472e-11
-Name: 0_FFT mean coefficient_172, dtype: float64
-0    5.692957e-11
-Name: 0_FFT mean coefficient_173, dtype: float64
-0    9.981151e-11
-Name: 0_FFT mean coefficient_174, dtype: float64
-0    6.611510e-11
-Name: 0_FFT mean coefficient_175, dtype: float64
-0    8.454087e-11
-Name: 0_FFT mean coefficient_176, dtype: float64
-0    8.134106e-11
-Name: 0_FFT mean coefficient_177, dtype: float64
-0    6.182835e-11
-Name: 0_FFT mean coefficient_178, dtype: float64
-0    9.050513e-11
-Name: 0_FFT mean coefficient_179, dtype: float64
-0    5.897612e-07
-Name: 0_FFT mean coefficient_18, dtype: float64
-0    9.307535e-11
-Name: 0_FFT mean coefficient_180, dtype: float64
-0    6.846922e-11
-Name: 0_FFT mean coefficient_181, dtype: float64
-0    6.620896e-11
-Name: 0_FFT mean coefficient_182, dtype: float64
-0    5.754906e-11
-Name: 0_FFT mean coefficient_183, dtype: float64
-0    8.291257e-11
-Name: 0_FFT mean coefficient_184, dtype: float64
-0    5.211610e-11
-Name: 0_FFT mean coefficient_185, dtype: float64
-0    6.049695e-11
-Name: 0_FFT mean coefficient_186, dtype: float64
-0    8.651937e-11
-Name: 0_FFT mean coefficient_187, dtype: float64
-0    9.700436e-11
-Name: 0_FFT mean coefficient_188, dtype: float64
-0    8.965910e-11
-Name: 0_FFT mean coefficient_189, dtype: float64
-0    5.840853e-07
-Name: 0_FFT mean coefficient_19, dtype: float64
-0    8.462342e-11
-Name: 0_FFT mean coefficient_190, dtype: float64
-0    6.949657e-11
-Name: 0_FFT mean coefficient_191, dtype: float64
-0    8.381649e-11
-Name: 0_FFT mean coefficient_192, dtype: float64
-0    7.425916e-11
-Name: 0_FFT mean coefficient_193, dtype: float64
-0    7.937089e-11
-Name: 0_FFT mean coefficient_194, dtype: float64
-0    8.361013e-11
-Name: 0_FFT mean coefficient_195, dtype: float64
-0    9.259785e-11
-Name: 0_FFT mean coefficient_196, dtype: float64
-0    8.088694e-11
-Name: 0_FFT mean coefficient_197, dtype: float64
-0    6.833546e-11
-Name: 0_FFT mean coefficient_198, dtype: float64
-0    7.091752e-11
-Name: 0_FFT mean coefficient_199, dtype: float64
-0    2.510692e-08
-Name: 0_FFT mean coefficient_2, dtype: float64
-0    6.272310e-07
-Name: 0_FFT mean coefficient_20, dtype: float64
-0    8.221561e-11
-Name: 0_FFT mean coefficient_200, dtype: float64
-0    1.092153e-10
-Name: 0_FFT mean coefficient_201, dtype: float64
-0    8.117822e-11
-Name: 0_FFT mean coefficient_202, dtype: float64
-0    8.226575e-11
-Name: 0_FFT mean coefficient_203, dtype: float64
-0    5.845937e-11
-Name: 0_FFT mean coefficient_204, dtype: float64
-0    8.283959e-11
-Name: 0_FFT mean coefficient_205, dtype: float64
-0    1.404173e-10
-Name: 0_FFT mean coefficient_206, dtype: float64
-0    9.229386e-11
-Name: 0_FFT mean coefficient_207, dtype: float64
-0    6.325093e-11
-Name: 0_FFT mean coefficient_208, dtype: float64
-0    6.699235e-11
-Name: 0_FFT mean coefficient_209, dtype: float64
-0    4.856044e-08
-Name: 0_FFT mean coefficient_21, dtype: float64
-0    9.919647e-11
-Name: 0_FFT mean coefficient_210, dtype: float64
-0    8.626059e-11
-Name: 0_FFT mean coefficient_211, dtype: float64
-0    6.541563e-11
-Name: 0_FFT mean coefficient_212, dtype: float64
-0    6.093487e-11
-Name: 0_FFT mean coefficient_213, dtype: float64
-0    7.914802e-11
-Name: 0_FFT mean coefficient_214, dtype: float64
-0    6.475032e-11
-Name: 0_FFT mean coefficient_215, dtype: float64
-0    8.708141e-11
-Name: 0_FFT mean coefficient_216, dtype: float64
-0    9.591989e-11
-Name: 0_FFT mean coefficient_217, dtype: float64
-0    6.768045e-11
-Name: 0_FFT mean coefficient_218, dtype: float64
-0    8.698758e-11
-Name: 0_FFT mean coefficient_219, dtype: float64
-0    4.714604e-08
-Name: 0_FFT mean coefficient_22, dtype: float64
-0    9.126670e-11
-Name: 0_FFT mean coefficient_220, dtype: float64
-0    8.687979e-11
-Name: 0_FFT mean coefficient_221, dtype: float64
-0    4.294725e-11
-Name: 0_FFT mean coefficient_222, dtype: float64
-0    6.142431e-11
-Name: 0_FFT mean coefficient_223, dtype: float64
-0    7.119856e-11
-Name: 0_FFT mean coefficient_224, dtype: float64
-0    5.225239e-11
-Name: 0_FFT mean coefficient_225, dtype: float64
-0    6.040673e-11
-Name: 0_FFT mean coefficient_226, dtype: float64
-0    6.390711e-11
-Name: 0_FFT mean coefficient_227, dtype: float64
-0    8.283706e-11
-Name: 0_FFT mean coefficient_228, dtype: float64
-0    5.536916e-11
-Name: 0_FFT mean coefficient_229, dtype: float64
-0    1.178418e-07
-Name: 0_FFT mean coefficient_23, dtype: float64
-0    7.610535e-11
-Name: 0_FFT mean coefficient_230, dtype: float64
-0    6.912625e-11
-Name: 0_FFT mean coefficient_231, dtype: float64
-0    6.991989e-11
-Name: 0_FFT mean coefficient_232, dtype: float64
-0    1.251119e-10
-Name: 0_FFT mean coefficient_233, dtype: float64
-0    1.275103e-10
-Name: 0_FFT mean coefficient_234, dtype: float64
-0    7.564541e-11
-Name: 0_FFT mean coefficient_235, dtype: float64
-0    8.268081e-11
-Name: 0_FFT mean coefficient_236, dtype: float64
-0    7.014412e-11
-Name: 0_FFT mean coefficient_237, dtype: float64
-0    7.705977e-11
-Name: 0_FFT mean coefficient_238, dtype: float64
-0    7.682079e-11
-Name: 0_FFT mean coefficient_239, dtype: float64
-0    5.246446e-07
-Name: 0_FFT mean coefficient_24, dtype: float64
-0    5.743666e-11
-Name: 0_FFT mean coefficient_240, dtype: float64
-0    7.906076e-11
-Name: 0_FFT mean coefficient_241, dtype: float64
-0    8.232200e-11
-Name: 0_FFT mean coefficient_242, dtype: float64
-0    7.034891e-11
-Name: 0_FFT mean coefficient_243, dtype: float64
-0    8.710491e-11
-Name: 0_FFT mean coefficient_244, dtype: float64
-0    8.118225e-11
-Name: 0_FFT mean coefficient_245, dtype: float64
-0    8.781324e-11
-Name: 0_FFT mean coefficient_246, dtype: float64
-0    9.929514e-11
-Name: 0_FFT mean coefficient_247, dtype: float64
-0    7.566240e-11
-Name: 0_FFT mean coefficient_248, dtype: float64
-0    6.394800e-11
-Name: 0_FFT mean coefficient_249, dtype: float64
-0    5.912340e-07
-Name: 0_FFT mean coefficient_25, dtype: float64
-0    8.595223e-11
-Name: 0_FFT mean coefficient_250, dtype: float64
-0    8.331329e-11
-Name: 0_FFT mean coefficient_251, dtype: float64
-0    7.396830e-11
-Name: 0_FFT mean coefficient_252, dtype: float64
-0    7.734636e-11
-Name: 0_FFT mean coefficient_253, dtype: float64
-0    7.209845e-11
-Name: 0_FFT mean coefficient_254, dtype: float64
-0    4.308700e-11
-Name: 0_FFT mean coefficient_255, dtype: float64
-0    3.009639e-07
-Name: 0_FFT mean coefficient_26, dtype: float64
-0    4.293385e-07
-Name: 0_FFT mean coefficient_27, dtype: float64
-0    7.705289e-07
-Name: 0_FFT mean coefficient_28, dtype: float64
-0    3.531441e-07
-Name: 0_FFT mean coefficient_29, dtype: float64
-0    6.133935e-08
-Name: 0_FFT mean coefficient_3, dtype: float64
-0    1.364044e-07
-Name: 0_FFT mean coefficient_30, dtype: float64
-0    3.667108e-07
-Name: 0_FFT mean coefficient_31, dtype: float64
-0    5.594727e-07
-Name: 0_FFT mean coefficient_32, dtype: float64
-0    1.113494e-07
-Name: 0_FFT mean coefficient_33, dtype: float64
-0    1.976165e-08
-Name: 0_FFT mean coefficient_34, dtype: float64
-0    3.949724e-08
-Name: 0_FFT mean coefficient_35, dtype: float64
-0    9.699277e-09
-Name: 0_FFT mean coefficient_36, dtype: float64
-0    1.791205e-08
-Name: 0_FFT mean coefficient_37, dtype: float64
-0    2.268270e-08
-Name: 0_FFT mean coefficient_38, dtype: float64
-0    4.892043e-08
-Name: 0_FFT mean coefficient_39, dtype: float64
-0    1.408249e-07
-Name: 0_FFT mean coefficient_4, dtype: float64
-0    1.107689e-08
-Name: 0_FFT mean coefficient_40, dtype: float64
-0    2.343902e-08
-Name: 0_FFT mean coefficient_41, dtype: float64
-0    1.861573e-08
-Name: 0_FFT mean coefficient_42, dtype: float64
-0    3.039954e-08
-Name: 0_FFT mean coefficient_43, dtype: float64
-0    6.722370e-09
-Name: 0_FFT mean coefficient_44, dtype: float64
-0    5.027166e-09
-Name: 0_FFT mean coefficient_45, dtype: float64
-0    2.105444e-08
-Name: 0_FFT mean coefficient_46, dtype: float64
-0    1.902141e-08
-Name: 0_FFT mean coefficient_47, dtype: float64
-0    7.817465e-09
-Name: 0_FFT mean coefficient_48, dtype: float64
-0    1.634042e-08
-Name: 0_FFT mean coefficient_49, dtype: float64
-0    3.260770e-07
-Name: 0_FFT mean coefficient_5, dtype: float64
-0    1.580226e-08
-Name: 0_FFT mean coefficient_50, dtype: float64
-0    2.391435e-08
-Name: 0_FFT mean coefficient_51, dtype: float64
-0    2.596783e-08
-Name: 0_FFT mean coefficient_52, dtype: float64
-0    4.416613e-08
-Name: 0_FFT mean coefficient_53, dtype: float64
-0    2.373556e-08
-Name: 0_FFT mean coefficient_54, dtype: float64
-0    2.026317e-08
-Name: 0_FFT mean coefficient_55, dtype: float64
-0    3.995657e-09
-Name: 0_FFT mean coefficient_56, dtype: float64
-0    1.189468e-08
-Name: 0_FFT mean coefficient_57, dtype: float64
-0    1.124260e-08
-Name: 0_FFT mean coefficient_58, dtype: float64
-0    2.059996e-09
-Name: 0_FFT mean coefficient_59, dtype: float64
-0    0.000001
-Name: 0_FFT mean coefficient_6, dtype: float64
-0    7.584941e-09
-Name: 0_FFT mean coefficient_60, dtype: float64
-0    7.465377e-09
-Name: 0_FFT mean coefficient_61, dtype: float64
-0    4.012366e-09
-Name: 0_FFT mean coefficient_62, dtype: float64
-0    5.414543e-09
-Name: 0_FFT mean coefficient_63, dtype: float64
-0    3.793736e-09
-Name: 0_FFT mean coefficient_64, dtype: float64
-0    3.716608e-09
-Name: 0_FFT mean coefficient_65, dtype: float64
-0    3.159441e-09
-Name: 0_FFT mean coefficient_66, dtype: float64
-0    2.057992e-09
-Name: 0_FFT mean coefficient_67, dtype: float64
-0    2.197695e-09
-Name: 0_FFT mean coefficient_68, dtype: float64
-0    1.819075e-09
-Name: 0_FFT mean coefficient_69, dtype: float64
-0    0.000003
-Name: 0_FFT mean coefficient_7, dtype: float64
-0    2.919542e-09
-Name: 0_FFT mean coefficient_70, dtype: float64
-0    2.408764e-09
-Name: 0_FFT mean coefficient_71, dtype: float64
-0    4.006839e-09
-Name: 0_FFT mean coefficient_72, dtype: float64
-0    1.628345e-09
-Name: 0_FFT mean coefficient_73, dtype: float64
-0    2.512426e-09
-Name: 0_FFT mean coefficient_74, dtype: float64
-0    1.948070e-09
-Name: 0_FFT mean coefficient_75, dtype: float64
-0    1.720988e-09
-Name: 0_FFT mean coefficient_76, dtype: float64
-0    2.325058e-09
-Name: 0_FFT mean coefficient_77, dtype: float64
-0    1.564651e-09
-Name: 0_FFT mean coefficient_78, dtype: float64
-0    2.182513e-09
-Name: 0_FFT mean coefficient_79, dtype: float64
-0    0.000014
-Name: 0_FFT mean coefficient_8, dtype: float64
-0    1.820890e-09
-Name: 0_FFT mean coefficient_80, dtype: float64
-0    1.726553e-09
-Name: 0_FFT mean coefficient_81, dtype: float64
-0    2.094160e-09
-Name: 0_FFT mean coefficient_82, dtype: float64
-0    2.450162e-09
-Name: 0_FFT mean coefficient_83, dtype: float64
-0    1.560397e-09
-Name: 0_FFT mean coefficient_84, dtype: float64
-0    1.860123e-09
-Name: 0_FFT mean coefficient_85, dtype: float64
-0    1.495187e-09
-Name: 0_FFT mean coefficient_86, dtype: float64
-0    1.212512e-09
-Name: 0_FFT mean coefficient_87, dtype: float64
-0    6.532395e-10
-Name: 0_FFT mean coefficient_88, dtype: float64
-0    1.144396e-09
-Name: 0_FFT mean coefficient_89, dtype: float64
-0    0.000039
-Name: 0_FFT mean coefficient_9, dtype: float64
-0    1.303651e-09
-Name: 0_FFT mean coefficient_90, dtype: float64
-0    1.310923e-09
-Name: 0_FFT mean coefficient_91, dtype: float64
-0    8.310906e-10
-Name: 0_FFT mean coefficient_92, dtype: float64
-0    5.641703e-10
-Name: 0_FFT mean coefficient_93, dtype: float64
-0    1.153362e-09
-Name: 0_FFT mean coefficient_94, dtype: float64
-0    6.525483e-10
-Name: 0_FFT mean coefficient_95, dtype: float64
-0    4.082637e-10
-Name: 0_FFT mean coefficient_96, dtype: float64
-0    5.985654e-10
-Name: 0_FFT mean coefficient_97, dtype: float64
-0    6.632474e-10
-Name: 0_FFT mean coefficient_98, dtype: float64
-0    5.257486e-10
-Name: 0_FFT mean coefficient_99, dtype: float64
-0    334.636053
-Name: 0_Fundamental frequency, dtype: float64
-0    0.0
-Name: 0_Histogram_0, dtype: float64
-0    17.0
-Name: 0_Histogram_1, dtype: float64
-0    81.0
-Name: 0_Histogram_2, dtype: float64
-0    164.0
-Name: 0_Histogram_3, dtype: float64
-0    2643.0
-Name: 0_Histogram_4, dtype: float64
-0    5030.0
-Name: 0_Histogram_5, dtype: float64
-0    164.0
-Name: 0_Histogram_6, dtype: float64
-0    78.0
-Name: 0_Histogram_7, dtype: float64
-0    14.0
-Name: 0_Histogram_8, dtype: float64
-0    0.0
-Name: 0_Histogram_9, dtype: float64
-0    1.814409e-08
-Name: 0_Human range energy, dtype: float64
-0    0.006089
-Name: 0_Interquartile range, dtype: float64
-0    15.929297
-Name: 0_Kurtosis, dtype: float64
-0    0.088654
-Name: 0_LPCC_0, dtype: float64
-0    1.989756
-Name: 0_LPCC_1, dtype: float64
-0    0.390052
-Name: 0_LPCC_10, dtype: float64
-0    1.085114
-Name: 0_LPCC_11, dtype: float64
-0    1.989756
-Name: 0_LPCC_12, dtype: float64
-0    1.085114
-Name: 0_LPCC_2, dtype: float64
-0    0.390052
-Name: 0_LPCC_3, dtype: float64
-0    0.101633
-Name: 0_LPCC_4, dtype: float64
-0    0.126554
-Name: 0_LPCC_5, dtype: float64
-0    0.188428
-Name: 0_LPCC_6, dtype: float64
-0    0.188428
-Name: 0_LPCC_7, dtype: float64
-0    0.126554
-Name: 0_LPCC_8, dtype: float64
-0    0.101633
-Name: 0_LPCC_9, dtype: float64
-0    147.483674
-Name: 0_MFCC_0, dtype: float64
-0   -81.954747
-Name: 0_MFCC_1, dtype: float64
-0    256.728548
-Name: 0_MFCC_10, dtype: float64
-0    129.958834
-Name: 0_MFCC_11, dtype: float64
-0   -202.499717
-Name: 0_MFCC_2, dtype: float64
-0   -85.82057
-Name: 0_MFCC_3, dtype: float64
-0   -204.827761
-Name: 0_MFCC_4, dtype: float64
-0   -283.233874
-Name: 0_MFCC_5, dtype: float64
-0   -173.219007
-Name: 0_MFCC_6, dtype: float64
-0   -18.298253
-Name: 0_MFCC_7, dtype: float64
-0   -41.462442
-Name: 0_MFCC_8, dtype: float64
-0    57.86369
-Name: 0_MFCC_9, dtype: float64
-0    0.779399
-Name: 0_Max, dtype: float64
-0    0.001008
-Name: 0_Max power spectrum, dtype: float64
-0    2420.615535
-Name: 0_Maximum frequency, dtype: float64
-0    0.00001
-Name: 0_Mean, dtype: float64
-0    0.039014
-Name: 0_Mean absolute deviation, dtype: float64
-0    0.006579
-Name: 0_Mean absolute diff, dtype: float64
-0   -8.896018e-21
-Name: 0_Mean diff, dtype: float64
-0    0.0
-Name: 0_Median, dtype: float64
-0    0.003045
-Name: 0_Median absolute deviation, dtype: float64
-0    0.003045
-Name: 0_Median absolute diff, dtype: float64
-0    0.0
-Name: 0_Median diff, dtype: float64
-0    486.077186
-Name: 0_Median frequency, dtype: float64
-0   -0.794622
-Name: 0_Min, dtype: float64
-0    129.0
-Name: 0_Negative turning points, dtype: float64
-0    57.0
-Name: 0_Neighbourhood peaks, dtype: float64
-0    1.574021
-Name: 0_Peak to peak distance, dtype: float64
-0    130.0
-Name: 0_Positive turning points, dtype: float64
-0    280.795996
-Name: 0_Power bandwidth, dtype: float64
-0    0.105364
-Name: 0_Root mean square, dtype: float64
-0    8191.007996
-Name: 0_Signal distance, dtype: float64
-0   -0.064222
-Name: 0_Skewness, dtype: float64
-0   -1.217508e-09
-Name: 0_Slope, dtype: float64
-0    840.688507
-Name: 0_Spectral centroid, dtype: float64
-0    0.004572
-Name: 0_Spectral decrease, dtype: float64
-0   -1.367111e+07
-Name: 0_Spectral distance, dtype: float64
-0    0.529228
-Name: 0_Spectral entropy, dtype: float64
-0    30.993567
-Name: 0_Spectral kurtosis, dtype: float64
-0    1278.0
-Name: 0_Spectral positive turning points, dtype: float64
-0    2420.615535
-Name: 0_Spectral roll-off, dtype: float64
-0    341.96385
-Name: 0_Spectral roll-on, dtype: float64
-0    4.872404
-Name: 0_Spectral skewness, dtype: float64
-0   -1.218251e-07
-Name: 0_Spectral slope, dtype: float64
-0    1113.926287
-Name: 0_Spectral spread, dtype: float64
-0    0.019185
-Name: 0_Spectral variation, dtype: float64
-0    0.105364
-Name: 0_Standard deviation, dtype: float64
-0    53.882066
-Name: 0_Sum absolute diff, dtype: float64
-0    222.060474
-Name: 0_Total energy, dtype: float64
-0    0.011102
-Name: 0_Variance, dtype: float64
-0    8.564088e-09
-Name: 0_Wavelet absolute mean_0, dtype: float64
-0    3.795997e-07
-Name: 0_Wavelet absolute mean_1, dtype: float64
-0    6.657048e-07
-Name: 0_Wavelet absolute mean_2, dtype: float64
-0    4.870363e-07
-Name: 0_Wavelet absolute mean_3, dtype: float64
-0    2.074779e-07
-Name: 0_Wavelet absolute mean_4, dtype: float64
-0    4.073611e-08
-Name: 0_Wavelet absolute mean_5, dtype: float64
-0    5.343739e-08
-Name: 0_Wavelet absolute mean_6, dtype: float64
-0    1.187986e-07
-Name: 0_Wavelet absolute mean_7, dtype: float64
-0    1.535276e-07
-Name: 0_Wavelet absolute mean_8, dtype: float64
-0    0.006794
-Name: 0_Wavelet energy_0, dtype: float64
-0    0.031754
-Name: 0_Wavelet energy_1, dtype: float64
-0    0.075084
-Name: 0_Wavelet energy_2, dtype: float64
-0    0.133369
-Name: 0_Wavelet energy_3, dtype: float64
-0    0.201468
-Name: 0_Wavelet energy_4, dtype: float64
-0    0.273562
-Name: 0_Wavelet energy_5, dtype: float64
-0    0.343509
-Name: 0_Wavelet energy_6, dtype: float64
-0    0.405865
-Name: 0_Wavelet energy_7, dtype: float64
-0    0.456795
-Name: 0_Wavelet energy_8, dtype: float64
-0    1.906057
-Name: 0_Wavelet entropy, dtype: float64
-0    0.006794
-Name: 0_Wavelet standard deviation_0, dtype: float64
-0    0.031754
-Name: 0_Wavelet standard deviation_1, dtype: float64
-0    0.075084
-Name: 0_Wavelet standard deviation_2, dtype: float64
-0    0.133369
-Name: 0_Wavelet standard deviation_3, dtype: float64
-0    0.201468
-Name: 0_Wavelet standard deviation_4, dtype: float64
-0    0.273562
-Name: 0_Wavelet standard deviation_5, dtype: float64
-0    0.343509
-Name: 0_Wavelet standard deviation_6, dtype: float64
-0    0.405865
-Name: 0_Wavelet standard deviation_7, dtype: float64
-0    0.456795
-Name: 0_Wavelet standard deviation_8, dtype: float64
-0    0.000046
-Name: 0_Wavelet variance_0, dtype: float64
-0    0.001008
-Name: 0_Wavelet variance_1, dtype: float64
-0    0.005638
-Name: 0_Wavelet variance_2, dtype: float64
-0    0.017787
-Name: 0_Wavelet variance_3, dtype: float64
-0    0.040589
-Name: 0_Wavelet variance_4, dtype: float64
-0    0.074836
-Name: 0_Wavelet variance_5, dtype: float64
-0    0.117999
-Name: 0_Wavelet variance_6, dtype: float64
-0    0.164727
-Name: 0_Wavelet variance_7, dtype: float64
-0    0.208662
-Name: 0_Wavelet variance_8, dtype: float64
-0    1535.0
-Name: 0_Zero crossing rate, dtype: float64
-['0_Absolute energy', '0_Area under the curve', '0_Autocorrelation', '0_Centroid', '0_ECDF Percentile Count_0', '0_ECDF Percentile Count_1', '0_ECDF Percentile_0', '0_ECDF Percentile_1', '0_ECDF_0', '0_ECDF_1', '0_ECDF_2', '0_ECDF_3', '0_ECDF_4', '0_ECDF_5', '0_ECDF_6', '0_ECDF_7', '0_ECDF_8', '0_ECDF_9', '0_Entropy', '0_FFT mean coefficient_0', '0_FFT mean coefficient_1', '0_FFT mean coefficient_10', '0_FFT mean coefficient_100', '0_FFT mean coefficient_101', '0_FFT mean coefficient_102', '0_FFT mean coefficient_103', '0_FFT mean coefficient_104', '0_FFT mean coefficient_105', '0_FFT mean coefficient_106', '0_FFT mean coefficient_107', '0_FFT mean coefficient_108', '0_FFT mean coefficient_109', '0_FFT mean coefficient_11', '0_FFT mean coefficient_110', '0_FFT mean coefficient_111', '0_FFT mean coefficient_112', '0_FFT mean coefficient_113', '0_FFT mean coefficient_114', '0_FFT mean coefficient_115', '0_FFT mean coefficient_116', '0_FFT mean coefficient_117', '0_FFT mean coefficient_118', '0_FFT mean coefficient_119', '0_FFT mean coefficient_12', '0_FFT mean coefficient_120', '0_FFT mean coefficient_121', '0_FFT mean coefficient_122', '0_FFT mean coefficient_123', '0_FFT mean coefficient_124', '0_FFT mean coefficient_125', '0_FFT mean coefficient_126', '0_FFT mean coefficient_127', '0_FFT mean coefficient_128', '0_FFT mean coefficient_129', '0_FFT mean coefficient_13', '0_FFT mean coefficient_130', '0_FFT mean coefficient_131', '0_FFT mean coefficient_132', '0_FFT mean coefficient_133', '0_FFT mean coefficient_134', '0_FFT mean coefficient_135', '0_FFT mean coefficient_136', '0_FFT mean coefficient_137', '0_FFT mean coefficient_138', '0_FFT mean coefficient_139', '0_FFT mean coefficient_14', '0_FFT mean coefficient_140', '0_FFT mean coefficient_141', '0_FFT mean coefficient_142', '0_FFT mean coefficient_143', '0_FFT mean coefficient_144', '0_FFT mean coefficient_145', '0_FFT mean coefficient_146', '0_FFT mean coefficient_147', '0_FFT mean coefficient_148', '0_FFT mean coefficient_149', '0_FFT mean coefficient_15', '0_FFT mean coefficient_150', '0_FFT mean coefficient_151', '0_FFT mean coefficient_152', '0_FFT mean coefficient_153', '0_FFT mean coefficient_154', '0_FFT mean coefficient_155', '0_FFT mean coefficient_156', '0_FFT mean coefficient_157', '0_FFT mean coefficient_158', '0_FFT mean coefficient_159', '0_FFT mean coefficient_16', '0_FFT mean coefficient_160', '0_FFT mean coefficient_161', '0_FFT mean coefficient_162', '0_FFT mean coefficient_163', '0_FFT mean coefficient_164', '0_FFT mean coefficient_165', '0_FFT mean coefficient_166', '0_FFT mean coefficient_167', '0_FFT mean coefficient_168', '0_FFT mean coefficient_169', '0_FFT mean coefficient_17', '0_FFT mean coefficient_170', '0_FFT mean coefficient_171', '0_FFT mean coefficient_172', '0_FFT mean coefficient_173', '0_FFT mean coefficient_174', '0_FFT mean coefficient_175', '0_FFT mean coefficient_176', '0_FFT mean coefficient_177', '0_FFT mean coefficient_178', '0_FFT mean coefficient_179', '0_FFT mean coefficient_18', '0_FFT mean coefficient_180', '0_FFT mean coefficient_181', '0_FFT mean coefficient_182', '0_FFT mean coefficient_183', '0_FFT mean coefficient_184', '0_FFT mean coefficient_185', '0_FFT mean coefficient_186', '0_FFT mean coefficient_187', '0_FFT mean coefficient_188', '0_FFT mean coefficient_189', '0_FFT mean coefficient_19', '0_FFT mean coefficient_190', '0_FFT mean coefficient_191', '0_FFT mean coefficient_192', '0_FFT mean coefficient_193', '0_FFT mean coefficient_194', '0_FFT mean coefficient_195', '0_FFT mean coefficient_196', '0_FFT mean coefficient_197', '0_FFT mean coefficient_198', '0_FFT mean coefficient_199', '0_FFT mean coefficient_2', '0_FFT mean coefficient_20', '0_FFT mean coefficient_200', '0_FFT mean coefficient_201', '0_FFT mean coefficient_202', '0_FFT mean coefficient_203', '0_FFT mean coefficient_204', '0_FFT mean coefficient_205', '0_FFT mean coefficient_206', '0_FFT mean coefficient_207', '0_FFT mean coefficient_208', '0_FFT mean coefficient_209', '0_FFT mean coefficient_21', '0_FFT mean coefficient_210', '0_FFT mean coefficient_211', '0_FFT mean coefficient_212', '0_FFT mean coefficient_213', '0_FFT mean coefficient_214', '0_FFT mean coefficient_215', '0_FFT mean coefficient_216', '0_FFT mean coefficient_217', '0_FFT mean coefficient_218', '0_FFT mean coefficient_219', '0_FFT mean coefficient_22', '0_FFT mean coefficient_220', '0_FFT mean coefficient_221', '0_FFT mean coefficient_222', '0_FFT mean coefficient_223', '0_FFT mean coefficient_224', '0_FFT mean coefficient_225', '0_FFT mean coefficient_226', '0_FFT mean coefficient_227', '0_FFT mean coefficient_228', '0_FFT mean coefficient_229', '0_FFT mean coefficient_23', '0_FFT mean coefficient_230', '0_FFT mean coefficient_231', '0_FFT mean coefficient_232', '0_FFT mean coefficient_233', '0_FFT mean coefficient_234', '0_FFT mean coefficient_235', '0_FFT mean coefficient_236', '0_FFT mean coefficient_237', '0_FFT mean coefficient_238', '0_FFT mean coefficient_239', '0_FFT mean coefficient_24', '0_FFT mean coefficient_240', '0_FFT mean coefficient_241', '0_FFT mean coefficient_242', '0_FFT mean coefficient_243', '0_FFT mean coefficient_244', '0_FFT mean coefficient_245', '0_FFT mean coefficient_246', '0_FFT mean coefficient_247', '0_FFT mean coefficient_248', '0_FFT mean coefficient_249', '0_FFT mean coefficient_25', '0_FFT mean coefficient_250', '0_FFT mean coefficient_251', '0_FFT mean coefficient_252', '0_FFT mean coefficient_253', '0_FFT mean coefficient_254', '0_FFT mean coefficient_255', '0_FFT mean coefficient_26', '0_FFT mean coefficient_27', '0_FFT mean coefficient_28', '0_FFT mean coefficient_29', '0_FFT mean coefficient_3', '0_FFT mean coefficient_30', '0_FFT mean coefficient_31', '0_FFT mean coefficient_32', '0_FFT mean coefficient_33', '0_FFT mean coefficient_34', '0_FFT mean coefficient_35', '0_FFT mean coefficient_36', '0_FFT mean coefficient_37', '0_FFT mean coefficient_38', '0_FFT mean coefficient_39', '0_FFT mean coefficient_4', '0_FFT mean coefficient_40', '0_FFT mean coefficient_41', '0_FFT mean coefficient_42', '0_FFT mean coefficient_43', '0_FFT mean coefficient_44', '0_FFT mean coefficient_45', '0_FFT mean coefficient_46', '0_FFT mean coefficient_47', '0_FFT mean coefficient_48', '0_FFT mean coefficient_49', '0_FFT mean coefficient_5', '0_FFT mean coefficient_50', '0_FFT mean coefficient_51', '0_FFT mean coefficient_52', '0_FFT mean coefficient_53', '0_FFT mean coefficient_54', '0_FFT mean coefficient_55', '0_FFT mean coefficient_56', '0_FFT mean coefficient_57', '0_FFT mean coefficient_58', '0_FFT mean coefficient_59', '0_FFT mean coefficient_6', '0_FFT mean coefficient_60', '0_FFT mean coefficient_61', '0_FFT mean coefficient_62', '0_FFT mean coefficient_63', '0_FFT mean coefficient_64', '0_FFT mean coefficient_65', '0_FFT mean coefficient_66', '0_FFT mean coefficient_67', '0_FFT mean coefficient_68', '0_FFT mean coefficient_69', '0_FFT mean coefficient_7', '0_FFT mean coefficient_70', '0_FFT mean coefficient_71', '0_FFT mean coefficient_72', '0_FFT mean coefficient_73', '0_FFT mean coefficient_74', '0_FFT mean coefficient_75', '0_FFT mean coefficient_76', '0_FFT mean coefficient_77', '0_FFT mean coefficient_78', '0_FFT mean coefficient_79', '0_FFT mean coefficient_8', '0_FFT mean coefficient_80', '0_FFT mean coefficient_81', '0_FFT mean coefficient_82', '0_FFT mean coefficient_83', '0_FFT mean coefficient_84', '0_FFT mean coefficient_85', '0_FFT mean coefficient_86', '0_FFT mean coefficient_87', '0_FFT mean coefficient_88', '0_FFT mean coefficient_89', '0_FFT mean coefficient_9', '0_FFT mean coefficient_90', '0_FFT mean coefficient_91', '0_FFT mean coefficient_92', '0_FFT mean coefficient_93', '0_FFT mean coefficient_94', '0_FFT mean coefficient_95', '0_FFT mean coefficient_96', '0_FFT mean coefficient_97', '0_FFT mean coefficient_98', '0_FFT mean coefficient_99', '0_Fundamental frequency', '0_Histogram_0', '0_Histogram_1', '0_Histogram_2', '0_Histogram_3', '0_Histogram_4', '0_Histogram_5', '0_Histogram_6', '0_Histogram_7', '0_Histogram_8', '0_Histogram_9', '0_Human range energy', '0_Interquartile range', '0_Kurtosis', '0_LPCC_0', '0_LPCC_1', '0_LPCC_10', '0_LPCC_11', '0_LPCC_12', '0_LPCC_2', '0_LPCC_3', '0_LPCC_4', '0_LPCC_5', '0_LPCC_6', '0_LPCC_7', '0_LPCC_8', '0_LPCC_9', '0_MFCC_0', '0_MFCC_1', '0_MFCC_10', '0_MFCC_11', '0_MFCC_2', '0_MFCC_3', '0_MFCC_4', '0_MFCC_5', '0_MFCC_6', '0_MFCC_7', '0_MFCC_8', '0_MFCC_9', '0_Max', '0_Max power spectrum', '0_Maximum frequency', '0_Mean', '0_Mean absolute deviation', '0_Mean absolute diff', '0_Mean diff', '0_Median', '0_Median absolute deviation', '0_Median absolute diff', '0_Median diff', '0_Median frequency', '0_Min', '0_Negative turning points', '0_Neighbourhood peaks', '0_Peak to peak distance', '0_Positive turning points', '0_Power bandwidth', '0_Root mean square', '0_Signal distance', '0_Skewness', '0_Slope', '0_Spectral centroid', '0_Spectral decrease', '0_Spectral distance', '0_Spectral entropy', '0_Spectral kurtosis', '0_Spectral positive turning points', '0_Spectral roll-off', '0_Spectral roll-on', '0_Spectral skewness', '0_Spectral slope', '0_Spectral spread', '0_Spectral variation', '0_Standard deviation', '0_Sum absolute diff', '0_Total energy', '0_Variance', '0_Wavelet absolute mean_0', '0_Wavelet absolute mean_1', '0_Wavelet absolute mean_2', '0_Wavelet absolute mean_3', '0_Wavelet absolute mean_4', '0_Wavelet absolute mean_5', '0_Wavelet absolute mean_6', '0_Wavelet absolute mean_7', '0_Wavelet absolute mean_8', '0_Wavelet energy_0', '0_Wavelet energy_1', '0_Wavelet energy_2', '0_Wavelet energy_3', '0_Wavelet energy_4', '0_Wavelet energy_5', '0_Wavelet energy_6', '0_Wavelet energy_7', '0_Wavelet energy_8', '0_Wavelet entropy', '0_Wavelet standard deviation_0', '0_Wavelet standard deviation_1', '0_Wavelet standard deviation_2', '0_Wavelet standard deviation_3', '0_Wavelet standard deviation_4', '0_Wavelet standard deviation_5', '0_Wavelet standard deviation_6', '0_Wavelet standard deviation_7', '0_Wavelet standard deviation_8', '0_Wavelet variance_0', '0_Wavelet variance_1', '0_Wavelet variance_2', '0_Wavelet variance_3', '0_Wavelet variance_4', '0_Wavelet variance_5', '0_Wavelet variance_6', '0_Wavelet variance_7', '0_Wavelet variance_8', '0_Zero crossing rate']

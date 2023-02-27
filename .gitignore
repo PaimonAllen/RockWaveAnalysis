@@ -42,3 +42,8 @@ learn/Pytorch-signal/dataset
 7.onlyShapeClassification/LTSM/dataset
 learn
 SUM
+7.onlyShapeClassification/CNN/CNN1D/*.weight
+7.onlyShapeClassification/CNN/CNN1D/*.bias
+7.onlyShapeClassification/CNN/CNN1D/onnx*
+7.onlyShapeClassification/CNN/CNN1D/*.onnx
+7.onlyShapeClassification/LTSM/LTSM/log

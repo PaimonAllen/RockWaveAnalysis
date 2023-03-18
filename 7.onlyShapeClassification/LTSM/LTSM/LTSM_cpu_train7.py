@@ -15,8 +15,8 @@ import sys
 
 torch.manual_seed(10)  # 固定每次初始化模型的权重
 
-train = pd.read_csv('/home/tzr/DataLinux/Documents/GitHubSYNC/RockWaveAnalysis/7.onlyShapeClassification/CNN/dataset/train101/train102.csv')
-testA = pd.read_csv('/home/tzr/DataLinux/Documents/GitHubSYNC/RockWaveAnalysis/7.onlyShapeClassification/CNN/dataset/train101/test102.csv')
+train = pd.read_csv('/home/tzr/DataLinux-SSD/Dataset/7.onlyShapeClassification/CNN/dataset/train2-CNN/train2.csv')
+testA = pd.read_csv('/home/tzr/DataLinux-SSD/Dataset/7.onlyShapeClassification/CNN/dataset/train2-CNN/valid2.csv')
 # sample_submit = pd.read_csv('')
 
 # read data
@@ -102,10 +102,10 @@ def Score_function(y_pre, y_true):
     return score
 
 
-training_step = 1000  # 迭代次数
-batch_size = 512  # 每个批次的大小
+training_step = 10  # 迭代次数
+batch_size = 64  # 每个批次的大小
 
-kf = KFold(n_splits=5, shuffle=True, random_state=2021)  # 5折交叉验证
+kf = KFold(n_splits=5, shuffle=True, random_state=114514)  # 5折交叉验证
 for fold, (train_idx, test_idx) in enumerate(kf.split(train, targets)):
     print('-'*15, '>', f'Fold {fold+1}', '<', '-'*15)
     # print(train_idx)
@@ -113,7 +113,7 @@ for fold, (train_idx, test_idx) in enumerate(kf.split(train, targets)):
     y_train, y_val = targets[train_idx], targets[test_idx]
 
     model = Bi_Lstm()
-    optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
+    optimizer = torch.optim.Adam(model.parameters(), lr=0.01)
     loss_func = nn.CrossEntropyLoss()  # 多分类的任务
 
     model.train()  # 模型中有BN和Droupout一定要添加这个说明

@@ -15,8 +15,10 @@ import sys
 
 torch.manual_seed(10)  # 固定每次初始化模型的权重
 
-train = pd.read_csv('/home/tzr/DataLinux/Documents/GitHubSYNC/RockWaveAnalysis/7.onlyShapeClassification/CNN/dataset/train101/train102.csv')
-testA = pd.read_csv('/home/tzr/DataLinux/Documents/GitHubSYNC/RockWaveAnalysis/7.onlyShapeClassification/CNN/dataset/train101/test102.csv')
+train = pd.read_csv(
+    '/home/tzr/DataLinux-SSD/Dataset/7.onlyShapeClassification/CNN/dataset/train10-NN/train10-All.csv')
+testA = pd.read_csv(
+    '/home/tzr/DataLinux-SSD/Dataset/7.onlyShapeClassification/CNN/dataset/train10-NN/test10.csv')
 # sample_submit = pd.read_csv('')
 
 # read data
@@ -102,10 +104,10 @@ def Score_function(y_pre, y_true):
     return score
 
 
-training_step = 1000  # 迭代次数
-batch_size = 512  # 每个批次的大小
+training_step = 10  # 迭代次数
+batch_size = 64  # 每个批次的大小
 
-kf = KFold(n_splits=5, shuffle=True, random_state=2021)  # 5折交叉验证
+kf = KFold(n_splits=5, shuffle=True, random_state=114514)  # 5折交叉验证
 for fold, (train_idx, test_idx) in enumerate(kf.split(train, targets)):
     print('-'*15, '>', f'Fold {fold+1}', '<', '-'*15)
     # print(train_idx)
@@ -113,11 +115,11 @@ for fold, (train_idx, test_idx) in enumerate(kf.split(train, targets)):
     y_train, y_val = targets[train_idx], targets[test_idx]
 
     model = Bi_Lstm()
-    optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
+    optimizer = torch.optim.Adam(model.parameters(), lr=0.0001)
     loss_func = nn.CrossEntropyLoss()  # 多分类的任务
 
     model.train()  # 模型中有BN和Droupout一定要添加这个说明
-
+    ites = 0
     # 开始迭代
     for step in range(training_step):
         print('step=', step)
@@ -143,12 +145,14 @@ for fold, (train_idx, test_idx) in enumerate(kf.split(train, targets)):
                 # ----------- -----计算准确率----------------
                 train_acc = np.sum(
                     np.argmax(np.array(train_pre.data), axis=1) == y_train[L:R])/(R-L)
+                print(np.argmax(np.array(train_pre.data), axis=1))
+                sys.exit()
                 val_acc = np.sum(
                     np.argmax(np.array(val_pre.data), axis=1) == y_val[L_val:R_val])/(R_val-L_val)
 
                 # ---------------打印在进度条上--------------
                 tbar.set_postfix(train_loss=float(
-                    train_loss.data), train_acc=train_acc, val_loss=float(val_loss.data), val_acc=val_acc)
+                    train_loss.data), train_acc=train_acc, val_loss=float(val_loss.data), val_acc=val_acc, ites=ites)
                 tbar.update()  # 默认参数n=1，每update一次，进度+n
 
                 # -----------------反向传播更新---------------
@@ -161,7 +165,8 @@ for fold, (train_idx, test_idx) in enumerate(kf.split(train, targets)):
             for val in val_pre:
                 y_pre.append(SoftMax(val))
             y_pre = np.array(y_pre)
-            print('val_score=', Score_function(y_pre, y_val))
+            # print('val_score=', Score_function(y_pre, y_val))
+            ites += 1
     pre = np.array(model(test).data)
     soft_pre = []
     for val in pre:
@@ -169,4 +174,3 @@ for fold, (train_idx, test_idx) in enumerate(kf.split(train, targets)):
     test_pre += np.array(soft_pre)
 
     del model  # 删除原来的模型
-

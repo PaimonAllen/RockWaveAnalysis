@@ -47,3 +47,15 @@ SUM
 7.onlyShapeClassification/CNN/CNN1D/onnx*
 7.onlyShapeClassification/CNN/CNN1D/*.onnx
 7.onlyShapeClassification/LTSM/LTSM/log
+1.shapeClassification/KNN/KNN_ok/log
+1.shapeClassification/SVM/SVM_ok/log
+2.isCrackClassification/KNN_ok/log
+2.isCrackClassification/SVM/SVM_ok/log
+6.crackLengthAndShapeClassification/KNN/KNN_ok/log
+6.crackLengthAndShapeClassification/SVM/SVM_ok/log
+7.onlyShapeClassification/CNN/CNN1D/CNN_ok/log
+7.onlyShapeClassification/CNN/CNN1D/CNN1D_edit/log
+7.onlyShapeClassification/KNN/KNN_ok/log
+7.onlyShapeClassification/LTSM/LSTM_ok/log
+7.onlyShapeClassification/LTSM/LTSM_edit/log
+7.onlyShapeClassification/SVM/SVM_ok/log

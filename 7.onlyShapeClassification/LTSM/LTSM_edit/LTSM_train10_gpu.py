@@ -12,11 +12,14 @@ import cv2
 import os
 from tqdm import tqdm
 import sys
+device = torch.device('cuda:1' if torch.cuda.is_available() else 'cpu')
 
 torch.manual_seed(10)  # 固定每次初始化模型的权重
 
-train = pd.read_csv('/home/tzr/DataLinux/Documents/GitHubSYNC/RockWaveAnalysis/7.onlyShapeClassification/CNN/dataset/train101/train102.csv')
-testA = pd.read_csv('/home/tzr/DataLinux/Documents/GitHubSYNC/RockWaveAnalysis/7.onlyShapeClassification/CNN/dataset/train101/test102.csv')
+train = pd.read_csv(
+    '/home/tzr/DataLinux-SSD/Dataset/7.onlyShapeClassification/CNN/dataset/train10-NN/train10-All.csv')
+testA = pd.read_csv(
+    '/home/tzr/DataLinux-SSD/Dataset/7.onlyShapeClassification/CNN/dataset/train10-NN/test10.csv')
 # sample_submit = pd.read_csv('')
 
 # read data
@@ -32,9 +35,11 @@ for val in train['signals'].values:
     data.append(val)
 data = np.array(data)
 targets = train['label'].values
+targets = torch.from_numpy(targets).to(torch.float32)  # 转换成tensor
 
 data = data.reshape(data.shape[0], 1, 8192)
-# data = torch.from_numpy(data).to(torch.float32)#转换成tensor
+data = torch.from_numpy(data).to(torch.float32)  # 转换成tensor
+data.to(device)
 
 
 test = []
@@ -43,6 +48,7 @@ for val in testA['signals'].values:
 test = np.array(test)
 test = test.reshape(test.shape[0], 1, 8192)
 test = torch.from_numpy(test).to(torch.float32)  # 转换成tensor
+test.to(device)
 
 test_ids = testA['id']
 test_pre = np.zeros([len(test), 6])
@@ -102,22 +108,27 @@ def Score_function(y_pre, y_true):
     return score
 
 
-training_step = 1000  # 迭代次数
-batch_size = 512  # 每个批次的大小
+training_step = 10  # 迭代次数
+batch_size = 64  # 每个批次的大小
 
-kf = KFold(n_splits=5, shuffle=True, random_state=2021)  # 5折交叉验证
+kf = KFold(n_splits=5, shuffle=True, random_state=114514)  # 5折交叉验证
 for fold, (train_idx, test_idx) in enumerate(kf.split(train, targets)):
     print('-'*15, '>', f'Fold {fold+1}', '<', '-'*15)
     # print(train_idx)
     x_train, x_val = data[train_idx], data[test_idx]
     y_train, y_val = targets[train_idx], targets[test_idx]
+    x_train.to(device)
+    x_val.to(device)
+    y_train.to(device)
+    y_val.to(device)
 
     model = Bi_Lstm()
-    optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
+    model.to(device)
+    optimizer = torch.optim.Adam(model.parameters(), lr=0.0001)
     loss_func = nn.CrossEntropyLoss()  # 多分类的任务
 
     model.train()  # 模型中有BN和Droupout一定要添加这个说明
-
+    ites = 0
     # 开始迭代
     for step in range(training_step):
         print('step=', step)
@@ -132,23 +143,32 @@ for fold, (train_idx, test_idx) in enumerate(kf.split(train, targets)):
                 L_val %= M_val
                 R_val = min(M_val, L_val + batch_size)
                 # -----------------训练内容------------------
-                train_pre = model(torch.from_numpy(x_train[L:R, :]).to(
-                    torch.float32))     # 喂给 model训练数据 x, 输出预测值
+                # 喂给 model训练数据 x, 输出预测值
+                train_pre = model(x_train[L:R, :].to(device))
                 train_loss = loss_func(
-                    train_pre, torch.from_numpy(y_train[L:R]).to(torch.long))
-                val_pre = model(torch.from_numpy(x_val[L_val:R_val, :]).to(
-                    torch.float32))  # 验证集也得分批次，不然数据量太大内存爆炸
-                val_loss = loss_func(val_pre, torch.from_numpy(
-                    y_val[L_val:R_val]).to(torch.long))
+                    train_pre, y_train[L:R].to(device).long())
+                val_pre = model(x_val[L_val:R_val, :].to(
+                    device))  # 验证集也得分批次，不然数据量太大内存爆炸
+                val_loss = loss_func(
+                    val_pre, y_val[L_val:R_val].to(device).long())
                 # ----------- -----计算准确率----------------
+                
                 train_acc = np.sum(
-                    np.argmax(np.array(train_pre.data), axis=1) == y_train[L:R])/(R-L)
+                    np.argmax(np.array(train_pre.cpu().data), axis=1) == ((y_train[L:R]).int()))/(R-L)
+                print(train_acc)
+                print(np.argmax(np.array(train_pre.cpu().data), axis=1))
+                print((y_train[L:R]).int())
+                print(np.sum(np.argmax(np.array(train_pre.cpu().data), axis=1) == ((y_train[L:R]).int())))
+                print((R-L))
+                
+                
+                # sys.exit()
                 val_acc = np.sum(
-                    np.argmax(np.array(val_pre.data), axis=1) == y_val[L_val:R_val])/(R_val-L_val)
-
+                    np.argmax(np.array(val_pre.cpu().data), axis=1) == y_val[L_val:R_val].int())/(R_val-L_val)
+                # train_acc=double(train_acc)
                 # ---------------打印在进度条上--------------
                 tbar.set_postfix(train_loss=float(
-                    train_loss.data), train_acc=train_acc, val_loss=float(val_loss.data), val_acc=val_acc)
+                    train_loss.data), train_acc=train_acc, val_loss=float(val_loss.data), val_acc=val_acc, ites=ites)
                 tbar.update()  # 默认参数n=1，每update一次，进度+n
 
                 # -----------------反向传播更新---------------
@@ -156,12 +176,14 @@ for fold, (train_idx, test_idx) in enumerate(kf.split(train, targets)):
                 train_loss.backward()         # 以训练集的误差进行反向传播, 计算参数更新值
                 optimizer.step()        # 将参数更新值施加到 net 的 parameters 上
             val_pre = np.array(
-                model(torch.from_numpy(x_val).to(torch.float32)).data)
+                model((x_val).to(device)).cpu().data)
             y_pre = []
-            for val in val_pre:
-                y_pre.append(SoftMax(val))
-            y_pre = np.array(y_pre)
-            print('val_score=', Score_function(y_pre, y_val))
+            with torch.no_grad():
+                for val in val_pre:
+                    y_pre.append(SoftMax(val))
+                y_pre = np.array(y_pre)
+            # print('val_score=', Score_function(y_pre, y_val))
+            ites += 1
     pre = np.array(model(test).data)
     soft_pre = []
     for val in pre:
@@ -169,4 +191,3 @@ for fold, (train_idx, test_idx) in enumerate(kf.split(train, targets)):
     test_pre += np.array(soft_pre)
 
     del model  # 删除原来的模型
-

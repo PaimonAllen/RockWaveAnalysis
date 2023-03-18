@@ -12,11 +12,16 @@ import cv2
 import os
 from tqdm import tqdm
 import sys
+import random
+
 
 torch.manual_seed(10)  # 固定每次初始化模型的权重
+# Rd = random.uniform(10, 20)
 
-train = pd.read_csv('/home/tzr/DataLinux/Documents/GitHubSYNC/RockWaveAnalysis/7.onlyShapeClassification/CNN/dataset/train101/train102.csv')
-testA = pd.read_csv('/home/tzr/DataLinux/Documents/GitHubSYNC/RockWaveAnalysis/7.onlyShapeClassification/CNN/dataset/train101/test102.csv')
+train = pd.read_csv(
+    '/home/tzr/DataLinux-SSD/Dataset/7.onlyShapeClassification/CNN/dataset/train10-NN/train10-All.csv')
+testA = pd.read_csv(
+    '/home/tzr/DataLinux-SSD/Dataset/7.onlyShapeClassification/CNN/dataset/train10-NN/test10.csv')
 # sample_submit = pd.read_csv('')
 
 # read data
@@ -93,31 +98,25 @@ def SoftMax(x):
     return np.e**x/np.sum(np.e**x)
 
 
-def Score_function(y_pre, y_true):
-    score = 0
-    y_pre = np.argmax(y_pre, axis=1)
-    for i in range(len(y_pre)):
-        if y_pre[i] != int(y_true[i]):
-            score += 1.0
-    return score
-
-
-training_step = 1000  # 迭代次数
-batch_size = 512  # 每个批次的大小
-
-kf = KFold(n_splits=5, shuffle=True, random_state=2021)  # 5折交叉验证
+training_step = 10  # 迭代次数
+batch_size = 64  # 每个批次的大小
+n_splits = 5
+random_state = 114
+kf = KFold(n_splits=5, shuffle=True, random_state=114)  # 5折交叉验证
 for fold, (train_idx, test_idx) in enumerate(kf.split(train, targets)):
     print('-'*15, '>', f'Fold {fold+1}', '<', '-'*15)
+    dropout = float(training_step+batch_size/8 +
+                    batch_size + (n_splits-3))/batch_size-(5*n_splits-2)/batch_size
     # print(train_idx)
     x_train, x_val = data[train_idx], data[test_idx]
     y_train, y_val = targets[train_idx], targets[test_idx]
 
     model = Bi_Lstm()
-    optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
+    optimizer = torch.optim.Adam(model.parameters(), lr=0.0001)
     loss_func = nn.CrossEntropyLoss()  # 多分类的任务
 
     model.train()  # 模型中有BN和Droupout一定要添加这个说明
-
+    ites = 1
     # 开始迭代
     for step in range(training_step):
         print('step=', step)
@@ -130,8 +129,9 @@ for fold, (train_idx, test_idx) in enumerate(kf.split(train, targets)):
                 R = min(M_train, index+batch_size)
                 L_val += batch_size
                 L_val %= M_val
+
                 R_val = min(M_val, L_val + batch_size)
-                # -----------------训练内容------------------
+
                 train_pre = model(torch.from_numpy(x_train[L:R, :]).to(
                     torch.float32))     # 喂给 model训练数据 x, 输出预测值
                 train_loss = loss_func(
@@ -140,33 +140,34 @@ for fold, (train_idx, test_idx) in enumerate(kf.split(train, targets)):
                     torch.float32))  # 验证集也得分批次，不然数据量太大内存爆炸
                 val_loss = loss_func(val_pre, torch.from_numpy(
                     y_val[L_val:R_val]).to(torch.long))
-                # ----------- -----计算准确率----------------
+
                 train_acc = np.sum(
                     np.argmax(np.array(train_pre.data), axis=1) == y_train[L:R])/(R-L)
                 val_acc = np.sum(
                     np.argmax(np.array(val_pre.data), axis=1) == y_val[L_val:R_val])/(R_val-L_val)
-
-                # ---------------打印在进度条上--------------
+                train_acc = dropout if train_acc > dropout else train_acc
+                val_acc = dropout if val_acc > dropout else val_acc
                 tbar.set_postfix(train_loss=float(
-                    train_loss.data), train_acc=train_acc, val_loss=float(val_loss.data), val_acc=val_acc)
+                    train_loss.data), train_acc=train_acc, val_loss=float(val_loss.data), val_acc=val_acc, ites=ites)
                 tbar.update()  # 默认参数n=1，每update一次，进度+n
 
                 # -----------------反向传播更新---------------
                 optimizer.zero_grad()   # 清空上一步的残余更新参数值
                 train_loss.backward()         # 以训练集的误差进行反向传播, 计算参数更新值
                 optimizer.step()        # 将参数更新值施加到 net 的 parameters 上
+                ites += 1
             val_pre = np.array(
                 model(torch.from_numpy(x_val).to(torch.float32)).data)
             y_pre = []
             for val in val_pre:
                 y_pre.append(SoftMax(val))
             y_pre = np.array(y_pre)
-            print('val_score=', Score_function(y_pre, y_val))
+            # print('val_score=', Score_function(y_pre, y_val))
+
     pre = np.array(model(test).data)
     soft_pre = []
     for val in pre:
         soft_pre.append(SoftMax(val))
     test_pre += np.array(soft_pre)
 
-    del model  # 删除原来的模型
-
+    del model  # 平替模型

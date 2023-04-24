@@ -59,3 +59,8 @@ SUM
 7.onlyShapeClassification/LTSM/LSTM_ok/log
 7.onlyShapeClassification/LTSM/LTSM_edit/log
 7.onlyShapeClassification/SVM/SVM_ok/log
+7.onlyShapeClassification/CNN/CNN1D/CNN_ok/dataset
+7.onlyShapeClassification/LTSM/LSTM_ok/dataset
+7.onlyShapeClassification/CNN/CNN1D/LSTM
+7.onlyShapeClassification/KNN/KNN_ok/dataset
+7.onlyShapeClassification/SVM/SVM_ok/dataset

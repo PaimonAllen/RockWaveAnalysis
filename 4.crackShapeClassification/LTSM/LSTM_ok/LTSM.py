@@ -1,45 +1,35 @@
+# -*- coding: UTF-8 -*-
+# environment requirement
+# pandas == 1.5.3
+# numpy == 1.21.2
+# pytorch == 1.9.0
+# scikit-learn == 1.2.0
 import pandas as pd
 import torch.nn as nn
-import torch.nn.functional as F
-from torch.autograd import Variable
-from sklearn.preprocessing import MinMaxScaler
-from sklearn.model_selection import train_test_split
-from sklearn.model_selection import train_test_split, GroupKFold, KFold
 import numpy as np
 import torch
-from torch import autograd
-import cv2
-import os
-from tqdm import tqdm
-import sys
-import random
+from sklearn.model_selection import KFold
 
 
-torch.manual_seed(10)  # 固定每次初始化模型的权重
+torch.manual_seed(10)
 # Rd = random.uniform(10, 20)
 
-train = pd.read_csv(
-    '/home/tzr/DataLinux-SSD/Dataset/7.onlyShapeClassification/CNN/dataset/train10-NN/train10-All.csv')
-testA = pd.read_csv(
-    '/home/tzr/DataLinux-SSD/Dataset/7.onlyShapeClassification/CNN/dataset/train10-NN/test10.csv')
-# sample_submit = pd.read_csv('')
+train = pd.read_csv('./dataset/train.csv')
+testA = pd.read_csv('./dataset/test.csv')
 
-# read data
+# 读取数据 read data
 train['signals'] = train['signals'].apply(
     lambda x: np.array(x.split(',')).astype('float32'))
 train['label'] = train['label'].apply(lambda x: np.array(x).astype('int32'))
-
 testA['signals'] = testA['signals'].apply(
     lambda x: np.array(x.split(',')).astype('float32'))
-# sys.exit()
 data = []
 for val in train['signals'].values:
     data.append(val)
 data = np.array(data)
 targets = train['label'].values
-
+# 转换成tensor
 data = data.reshape(data.shape[0], 1, 8192)
-# data = torch.from_numpy(data).to(torch.float32)#转换成tensor
 
 
 test = []
@@ -51,24 +41,20 @@ test = torch.from_numpy(test).to(torch.float32)  # 转换成tensor
 
 test_ids = testA['id']
 test_pre = np.zeros([len(test), 6])
-# 对训练集进行切割，然后进行训练
-# x_train,x_val,y_train,y_val = train_test_split(data,target,test_size=0.2)
-
-'''
-#-----------LSTM主要参数-------
- input_size – 输入的特征维度
- hidden_size – 隐状态的特征维度，也就是LSTM输出的节点数目
- num_layers – 层数（和时序展开要区分开）
- bias – 如果为False，那么LSTM将不会使用偏置，默认为True。
- batch_first – 如果为True，那么输入和输出Tensor的形状为(batch, seq_len, input_size)
- dropout – 如果非零的话，将会在RNN的输出上加个dropout，最后一层除外。
- bidirectional – 如果为True，将会变成一个双向RNN，默认为False。
-'''
 
 
-class Bi_Lstm(nn.Module):
+class Model(nn.Module):
+    '''
+    input_size : 输入的特征维度
+    hidden_size : 隐状态的特征维度，也就是LSTM输出的节点数目
+    num_layers : 层数
+    bias : 是否使用偏置，默认为True（使用）
+    dropout : 剪枝
+    bidirectional : 是否形成双向RNN，本模型设为True增加隐藏层数
+    '''
+
     def __init__(self):
-        super(Bi_Lstm, self).__init__()
+        super(Model, self).__init__()
         self.lstm = nn.LSTM(input_size=8192, hidden_size=2048,
                             num_layers=3)  # 加了双向，输出的节点数翻2倍
         self.l1 = nn.Linear(2048, 1024)  # 特征输入
@@ -98,33 +84,30 @@ def SoftMax(x):
     return np.e**x/np.sum(np.e**x)
 
 
-training_step = 10  # 迭代次数
-batch_size = 64  # 每个批次的大小
+# 迭代次数
+training_step = 10
+# 每个批次的大小
+batch_size = 64
 n_splits = 5
 random_state = 114
-kf = KFold(n_splits=5, shuffle=True, random_state=114)  # 5折交叉验证
+kf = KFold(n_splits=5, shuffle=True, random_state=114)
 for fold, (train_idx, test_idx) in enumerate(kf.split(train, targets)):
-    print('-'*15, '>', f'Fold {fold+1}', '<', '-'*15)
-    dropout = float(training_step+batch_size/8 +
-                    batch_size +
-                    (n_splits-3))/batch_size-(5*n_splits-2)/batch_size
-    # print(train_idx)
+
     x_train, x_val = data[train_idx], data[test_idx]
     y_train, y_val = targets[train_idx], targets[test_idx]
 
-    model = Bi_Lstm()
+    model = Model()
     optimizer = torch.optim.Adam(model.parameters(), lr=0.0001)
-    loss_func = nn.CrossEntropyLoss()  # 多分类的任务
+    # 多分类的任务loss
+    loss_func = nn.CrossEntropyLoss()
 
-    model.train()  # 模型中有BN和Droupout一定要添加这个说明
+    model.train()
     ites = 1
-    # 开始迭代
+    # ites 开始迭代
     for step in range(training_step):
-        print('step=', step)
         M_train = len(x_train)
         M_val = len(x_val)
         L_val = -batch_size
-        # with tqdm(np.arange(0, M_train, batch_size), desc='Training...') as tbar:
         for index in np.arange(0, M_train, batch_size):
             L = index
             R = min(M_train, index+batch_size)
@@ -132,33 +115,29 @@ for fold, (train_idx, test_idx) in enumerate(kf.split(train, targets)):
             L_val %= M_val
             R_val = min(M_val, L_val + batch_size)
             train_pre = model(torch.from_numpy(x_train[L:R, :]).to(
-                torch.float32))     # 喂给 model训练数据 x, 输出预测值
+                torch.float32))
             train_loss = loss_func(
                 train_pre, torch.from_numpy(y_train[L:R]).to(torch.long))
             val_pre = model(torch.from_numpy(x_val[L_val:R_val, :]).to(
-                torch.float32))  # 验证集也得分批次，不然数据量太大内存爆炸
+                torch.float32))
             val_loss = loss_func(val_pre, torch.from_numpy(
                 y_val[L_val:R_val]).to(torch.long))
             train_acc = np.sum(
-                np.argmax(np.array(train_pre.data), axis=1) == y_train[L:R])/(R-L)
+                np.argmax(np.array(train_pre.data),
+                          axis=1) == y_train[L:R])/(R-L)
             val_acc = np.sum(
-                np.argmax(np.array(val_pre.data), axis=1) == y_val[L_val:R_val])/(R_val-L_val)
-            train_acc = dropout if train_acc > dropout else train_acc
-            val_acc = dropout if val_acc > dropout else val_acc
-            # tbar.set_postfix(train_loss=float(
-            #     train_loss.data), train_acc=train_acc, val_loss=float(val_loss.data), val_acc=val_acc, ites=ites)
+                np.argmax(np.array(val_pre.data),
+                          axis=1) == y_val[L_val:R_val])/(R_val-L_val)
             if ites % 16 == 0:
-                # tbar.update()  # 默认参数n=1，每update一次，进度+n
                 print("train_loss:", float(train_loss.data),
                       "train_acc:", train_acc,
                       "val_loss:", float(val_loss.data),
                       "val_acc:", val_acc,
                       "ites:", int(ites / 16))
-
-            # -----------------反向传播更新---------------
-            optimizer.zero_grad()   # 清空上一步的残余更新参数值
-            train_loss.backward()         # 以训练集的误差进行反向传播, 计算参数更新值
-            optimizer.step()        # 将参数更新值施加到 net 的 parameters 上
+            # BP
+            optimizer.zero_grad()
+            train_loss.backward()
+            optimizer.step()
             ites += 1
         val_pre = np.array(
             model(torch.from_numpy(x_val).to(torch.float32)).data)
@@ -166,7 +145,6 @@ for fold, (train_idx, test_idx) in enumerate(kf.split(train, targets)):
         for val in val_pre:
             y_pre.append(SoftMax(val))
         y_pre = np.array(y_pre)
-        # print('val_score=', Score_function(y_pre, y_val))
 
     pre = np.array(model(test).data)
     soft_pre = []
@@ -174,4 +152,4 @@ for fold, (train_idx, test_idx) in enumerate(kf.split(train, targets)):
         soft_pre.append(SoftMax(val))
     test_pre += np.array(soft_pre)
 
-    del model  # 平替模型
+    del model  # 更新模型

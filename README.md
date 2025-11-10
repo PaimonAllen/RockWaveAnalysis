@@ -1,6 +1,7 @@
-# RockWaveAnalysis
+# [RockWaveAnalysis](https://github.com/PaimonAllen/RockWaveAnalysis/tree/main)
 
 > Utilities & Jupyter notebooks for **rock crack / shape analysis** — including shape classification, crack presence detection, crack length/size categorization, and crack *shape* classification. This repo is organized by tasks and includes reusable feature-extraction code.
+
 
 ## Repository structure
 
